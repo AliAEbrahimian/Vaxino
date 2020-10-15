@@ -1,38 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@mipmap/background"
-    tools:context=".MainActivity"
     >
-
     <ImageView
-        android:id="@+id/img_Main"
+        android:id="@+id/img_Clinic"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:layout_weight="4"
-        android:contentDescription="@string/logo_vaxino"
-        tools:srcCompat="@tools:sample/avatars"
-
+        android:contentDescription="@string/image_clinic"
         />
 
     <TextView
-        android:id="@+id/txt_Main"
+        android:id="@+id/txt_Information_Clinic"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:layout_weight="4"
-        android:text= "@string/txt_main"
+        android:text="@string/information_clinic"
         android:textColor="#000000"
         android:background="@drawable/design_text_view"
 
         />
 
     <Button
-        android:id="@+id/btn_Start_Vaccine"
+        android:id="@+id/btn_Call"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="30dp"
@@ -41,13 +36,13 @@
         android:layout_marginBottom="10dp"
         android:layout_weight="6"
         android:background="@drawable/design_button_1"
-        android:text="@string/start_vaccine"
+        android:text="@string/call"
         android:textAllCaps="false"
         android:textColor="#000000"
         />
 
     <Button
-        android:id="@+id/btn_Follow_Up"
+        android:id="@+id/btn_Back"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="30dp"
@@ -55,8 +50,8 @@
         android:layout_marginRight="30dp"
         android:layout_marginBottom="10dp"
         android:layout_weight="6"
-        android:background="@drawable/design_button_1"
-        android:text="@string/follow_up"
+        android:background="@drawable/design_button_2"
+        android:text="@string/back"
         android:textAllCaps="false"
         android:textColor="#000000" />
 
