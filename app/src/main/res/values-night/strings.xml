@@ -1,6 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Vaxino</string>
     <string name="Search">Button</string>
     <string name="start_vaccine">Start vaccine</string>
-    <string name="information">Information</string>
 </resources>
