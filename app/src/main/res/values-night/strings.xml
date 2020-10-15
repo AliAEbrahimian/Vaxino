@@ -2,4 +2,5 @@
 <resources>
     <string name="Search">Button</string>
     <string name="start_vaccine">Start vaccine</string>
+    <string name="LogoVaxino">TODO</string>
 </resources>
