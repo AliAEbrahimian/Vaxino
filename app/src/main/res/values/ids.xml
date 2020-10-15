@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <item name="txt_main" type="id">txt_main</item>
-    <item name="btn_Search" type="id">btn_Search</item>
-    <item name="btn_Start_Vaccine" type="id">btn_Start_Vaccine</item>
-    <item name="img_main" type="id">img_Main</item>
-</resources>
