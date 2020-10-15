@@ -32,7 +32,7 @@
         android:layout_marginRight="30dp"
         android:layout_weight="6"
         android:text="@string/Search"
-        android:background="@drawable/desin_button1"/>
+        android:background="@drawable/design_button1"/>
 
     <Button
         android:id="@+id/btn_Start_Vaccine"
@@ -42,7 +42,7 @@
         android:layout_marginRight="30dp"
         android:layout_weight="6"
         android:text="@string/start_vaccine"
-        android:background="@drawable/desin_button2"/>
+        android:background="@drawable/design_button2"/>
 
 
 </LinearLayout>
