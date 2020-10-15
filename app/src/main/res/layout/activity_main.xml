@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:layout_weight="4"
-        android:contentDescription="@string/LogoVaxino"
+        android:contentDescription="Logo Vaxino"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -22,7 +22,7 @@
         android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:layout_weight="4"
-        android:text="@string/information" />
+        android:text="Information" />
 
     <Button
         android:id="@+id/btn_Search"
@@ -34,9 +34,9 @@
         android:layout_marginBottom="10dp"
         android:layout_weight="6"
         android:background="@drawable/design_button1"
-        android:text="@string/Search"
+        android:text="Search"
         android:textAllCaps="false"
-        android:textColor="#FFFFFF" />
+        android:textColor="#000000" />
 
     <Button
         android:id="@+id/btn_Start_Vaccine"
@@ -48,9 +48,9 @@
         android:layout_marginBottom="10dp"
         android:layout_weight="6"
         android:background="@drawable/design_button2"
-        android:text="@string/start_vaccine"
+        android:text="Start Vaccine"
         android:textAllCaps="false"
-        android:textColor="#FFFFFF" />
+        android:textColor="#000000" />
 
 
 </LinearLayout>
