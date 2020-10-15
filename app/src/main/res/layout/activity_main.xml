@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:background="#FFF5EE"
+    tools:context=".MainActivity"
+    >
 
     <ImageView
         android:id="@+id/img_Main"
@@ -14,7 +15,9 @@
         android:layout_margin="10dp"
         android:layout_weight="4"
         android:contentDescription="Logo Vaxino"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/avatars"
+
+        />
 
     <TextView
         android:id="@+id/txt_Main"
@@ -22,7 +25,11 @@
         android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:layout_weight="4"
-        android:text="Information" />
+        android:text="Information"
+        android:textColor="#000000"
+        android:background="@drawable/design_text_view"
+
+        />
 
     <Button
         android:id="@+id/btn_Search"
@@ -33,10 +40,11 @@
         android:layout_marginRight="30dp"
         android:layout_marginBottom="10dp"
         android:layout_weight="6"
-        android:background="@drawable/design_button1"
+        android:background="@drawable/design_button_1"
         android:text="Search"
         android:textAllCaps="false"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        />
 
     <Button
         android:id="@+id/btn_Start_Vaccine"
@@ -47,7 +55,7 @@
         android:layout_marginRight="30dp"
         android:layout_marginBottom="10dp"
         android:layout_weight="6"
-        android:background="@drawable/design_button2"
+        android:background="@drawable/design_button_2"
         android:text="Start Vaccine"
         android:textAllCaps="false"
         android:textColor="#000000" />
