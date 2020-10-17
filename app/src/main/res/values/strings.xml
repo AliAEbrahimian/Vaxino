@@ -1,14 +1,14 @@
 <resources>
     <string name="app_name">Vaxino</string>
     <string name="txt_main">
-        <br/>
-        <br/>
-        <br/>
+        <br />
+        <br />
+        <br />
         <h6 style="text-align:center;">By pressing button </h6>
         <h3 style="text-align:center;">START VACCINE</h3> <h6 style="text-align:center;">
             you will enter the stage
         of finding the required vaccine in your city.</h6>
-        <b/>
+        <b />
         <h6>By pressing button </h6><h3 style="text-align:center;">FOLLOW UP</h3>
         <h6 style="text-align:center;"> you can use your national code to edit your
             registration process or just view.</h6>
