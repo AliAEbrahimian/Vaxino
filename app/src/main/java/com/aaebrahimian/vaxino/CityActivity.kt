@@ -42,12 +42,7 @@ class CityActivity : Activity() {
             startActivity(intent)
         }
 
-        val btn_Back = findViewById<Button>(R.id.btn_Back)
 
-        btn_Back.setOnClickListener {
-            val intent = Intent (this, MainActivity::class.java)
-            startActivity(intent)
-        }
 
     }
 

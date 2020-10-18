@@ -41,12 +41,6 @@ class VaccineActivity : Activity() {
             startActivity(intent)
         }
 
-        val btn_Back = findViewById<Button>(R.id.btn_Back)
-
-        btn_Back.setOnClickListener {
-            val intent = Intent (this, CityActivity::class.java)
-            startActivity(intent)
-        }
 
     }
 }
