@@ -18,6 +18,7 @@ class InformationClinicActivity : Activity() {
         val btn_Back = findViewById<Button>(R.id.btn_Back)
         val btn_Selection = findViewById<Button>(R.id.btn_Selection)
 
+
         btn_Call.setOnClickListener {
 
         }

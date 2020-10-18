@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@mipmap/background"
+    android:background="#FFFFFF"
     tools:context=".MainActivity"
     >
 
@@ -15,6 +15,7 @@
         android:layout_margin="10dp"
         android:layout_weight="4"
         android:contentDescription="@string/logo_vaxino"
+        android:src="@mipmap/logo"
         tools:srcCompat="@tools:sample/avatars"
 
         />
@@ -43,8 +44,7 @@
         android:background="@drawable/design_button_1"
         android:text="@string/start_vaccine"
         android:textAllCaps="false"
-        android:textColor="#000000"
-        />
+        android:textColor="#000000" />
 
     <Button
         android:id="@+id/btn_Follow_Up"

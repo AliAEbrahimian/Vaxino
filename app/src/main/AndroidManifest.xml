@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Vaxino">
-        <activity android:name=".InformationClinicActivity"></activity>
+        <activity android:name=".ClinicActivity"></activity>
+        <activity android:name=".VaccineActivity" />
+        <activity android:name=".CityActivity" />
+        <activity android:name=".InformationClinicActivity" />
         <activity android:name=".ConfirmedActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
