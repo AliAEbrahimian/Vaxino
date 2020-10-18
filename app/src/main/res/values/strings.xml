@@ -1,18 +1,15 @@
 <resources>
     <string name="app_name">Vaxino</string>
+
     <string name="txt_main">
-        <br />
-        <br />
-        <br />
-        <h6 style="text-align:center;">By pressing button </h6>
-        <h3 style="text-align:center;">START VACCINE</h3> <h6 style="text-align:center;">
-            you will enter the stage
-        of finding the required vaccine in your city.</h6>
-        <b />
-        <h6>By pressing button </h6><h3 style="text-align:center;">FOLLOW UP</h3>
-        <h6 style="text-align:center;"> you can use your national code to edit your
-            registration process or just view.</h6>
+        By pressing button
+        START VACCINE you will enter the stage
+        of finding the required vaccine in your city.
+        By pressing button FOLLOW UP
+        you can use your national code to edit your
+        registration process or just view.
     </string>
+
     <string name="logo_vaxino">Logo Vaxino</string>
     <string name="follow_up">Follow Up</string>
     <string name="start_vaccine">Start Vaccine</string>
@@ -21,4 +18,7 @@
     <string name="information_clinic">Information_Clinic</string>
     <string name="image_clinic">Image_Clinic</string>
     <string name="selection">Selection</string>
+    <string name="Isfahan">Isfahan</string>
+    <string name="Tehran">Tehran</string>
+    <string name="shiraz">Shiraz</string>
 </resources>
