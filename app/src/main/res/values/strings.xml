@@ -3,14 +3,14 @@
 
     <string name="txt_main"></string>
     <string name="logo_vaxino">Logo Vaxino</string>
-    <string name="follow_up">Follow Up</string>
-    <string name="start_vaccine">Start Vaccine</string>
-    <string name="back">Back</string>
-    <string name="call">Call</string>
+    <string name="follow_up">جست و جو</string>
+    <string name="start_vaccine">شروع انتخاب واکسن</string>
+    <string name="back">بازگشت</string>
+    <string name="call">تماس</string>
     <string name="information_clinic">Information_Clinic</string>
     <string name="image_clinic">Image_Clinic</string>
     <string name="selection">Selection</string>
-    <string name="Isfahan">Isfahan</string>
-    <string name="Tehran">Tehran</string>
-    <string name="shiraz">Shiraz</string>
+    <string name="Isfahan">اصفهان</string>
+    <string name="Tehran">تهران</string>
+    <string name="shiraz">شیراز</string>
 </resources>

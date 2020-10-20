@@ -26,11 +26,10 @@
         android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:layout_weight="4"
-        android:fontFamily="@font/fonts"
         android:includeFontPadding="true"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
+        android:textSize="36sp"
         android:textStyle="bold" />
 
     <Button
@@ -45,7 +44,8 @@
         android:background="@drawable/design_button_1"
         android:text="@string/start_vaccine"
         android:textAllCaps="false"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/btn_Follow_Up"
@@ -59,7 +59,8 @@
         android:background="@drawable/design_button_1"
         android:text="@string/follow_up"
         android:textAllCaps="false"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:textSize="24sp" />
 
 
 </LinearLayout>
