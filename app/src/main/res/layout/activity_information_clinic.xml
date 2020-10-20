@@ -20,11 +20,10 @@
         android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:layout_weight="4"
-        android:text="@string/information_clinic"
-        android:textColor="#000000"
         android:background="@drawable/design_text_view"
 
-        />
+        android:text="@string/information_clinic"
+        android:textColor="#000000" />
 
     <Button
         android:id="@+id/btn_Selection"
