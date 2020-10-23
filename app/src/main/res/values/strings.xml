@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">Vaxino</string>
-
-    <string name="txt_main"></string>
     <string name="logo_vaxino">Logo Vaxino</string>
     <string name="follow_up">Search</string>
     <string name="start_vaccine">Start Vaccine</string>
