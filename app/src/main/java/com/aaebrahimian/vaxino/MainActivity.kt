@@ -20,18 +20,18 @@ class MainActivity : AppCompatActivity() {
         val btn_Follow_Up = findViewById<Button>(R.id.btn_Follow_Up)
         val txt_Main = findViewById<TextView>(R.id.txt_Main)
 
-        txt_Main.typeface = ResourcesCompat.getFont(this,R.font.aldhabi)
-        txt_Main.text = "\n"+"راهنمای شروع\n" + "با فشار دادن دکمه شروع انتخاب واکسن " +
-                "وارد مرحله انتخاب شهر خود خواهید شد.\n" +
-                    "با فشار دادن دکمه جستوجو میتوانید اطلاعات خود را بیابید."
+        txt_Main.typeface = ResourcesCompat.getFont(this,R.font.outersid)
+        txt_Main.text = "Description:\n" +
+                "By pressing the START VACCINE button you will enter the vaccination stage\n" +
+                "By pressing the SEARCH button you will recover your data"
 
-        btn_Start_Vaccine.typeface = ResourcesCompat.getFont(this,R.font.aldhabi)
+        btn_Start_Vaccine.typeface = ResourcesCompat.getFont(this,R.font.outersid)
         btn_Start_Vaccine.setOnClickListener {
             val intent = Intent (this, CityActivity::class.java)
             startActivity(intent)
         }
 
-        btn_Follow_Up.typeface = ResourcesCompat.getFont(this,R.font.aldhabi)
+        btn_Follow_Up.typeface = ResourcesCompat.getFont(this,R.font.outersid)
         btn_Follow_Up.setOnClickListener {
 
         }
