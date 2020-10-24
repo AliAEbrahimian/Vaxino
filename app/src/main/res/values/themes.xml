@@ -16,8 +16,6 @@
 
     <style name="splash" parent="Theme.AppCompat.Light.NoActionBar">
 
-        <item name="background">@drawable/design_splash_background</item>
-
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>

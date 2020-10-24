@@ -30,7 +30,8 @@
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="36sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:background="@drawable/design_text_view"/>
 
     <Button
         android:id="@+id/btn_Start_Vaccine"

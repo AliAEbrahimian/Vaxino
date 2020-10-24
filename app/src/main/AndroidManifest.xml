@@ -11,14 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Vaxino">
 
-        <activity android:name=".WelcomeSplash">
+        <activity android:name=".WelcomeSplash"
+            android:theme="@style/splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
+
         <activity android:name=".ClinicActivity" />
         <activity android:name=".VaccineActivity" />
         <activity android:name=".CityActivity" />
