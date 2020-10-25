@@ -71,7 +71,7 @@ class VaccineActivity : AppCompatActivity() {
 
         btn_Vaccine_7.text = "Hep.B"
         btn_Vaccine_7.typeface = ResourcesCompat.getFont(this,R.font.frission)
-        btn_Vaccine_5.setOnClickListener {
+        btn_Vaccine_7.setOnClickListener {
             val intent = Intent (this, ClinicActivity::class.java)
             startActivity(intent)
         }
