@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         btn_Start_Vaccine.typeface = ResourcesCompat.getFont(this,R.font.frission)
         btn_Start_Vaccine.setOnClickListener {
-            val intent = Intent (this, CityActivity::class.java)
+            val intent = Intent (this,CityAndVaccine::class.java)
             startActivity(intent)
         }
 
