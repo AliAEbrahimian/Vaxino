@@ -22,7 +22,9 @@
     <Spinner
         android:id="@+id/spinner_City"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        />
 
     <TextView
         android:id="@+id/txt_Vaccine"
@@ -38,7 +40,9 @@
     <Spinner
         android:id="@+id/spinner_Vaccine"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        />
 
     <Button
         android:id="@+id/btn_Selection"
