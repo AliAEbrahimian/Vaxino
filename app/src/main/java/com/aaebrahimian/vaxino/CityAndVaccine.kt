@@ -16,6 +16,7 @@ class CityAndVaccine : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cityandvaccine)
 
+
         val txt_City = findViewById<TextView>(R.id.txt_City)
         val spinner_City : Spinner = findViewById(R.id.spinner_City)
 
