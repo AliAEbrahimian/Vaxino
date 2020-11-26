@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Vaxino">
 
-        <activity android:name=".WelcomeSplash"
+        <activity android:name=".splashscreen.WelcomeSplash"
             android:theme="@style/splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,11 +20,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ClinicActivity" />
-        <activity android:name=".CityAndVaccine" />
-        <activity android:name=".InformationClinicActivity" />
-        <activity android:name=".ConfirmedActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".activitycodes.ClinicActivity" />
+        <activity android:name=".activitycodes.CityAndVaccine" />
+        <activity android:name=".activitycodes.InformationClinicActivity" />
+        <activity android:name=".activitycodes.ConfirmedActivity" />
+        <activity android:name=".activitycodes.MainActivity" />
     </application>
 
 </manifest>

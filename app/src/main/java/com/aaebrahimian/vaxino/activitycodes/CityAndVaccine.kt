@@ -1,15 +1,10 @@
-package com.aaebrahimian.vaxino
+package com.aaebrahimian.vaxino.activitycodes
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
-import android.util.DebugUtils
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.res.ResourcesCompat
-import java.lang.reflect.Array
-import java.util.*
+import com.aaebrahimian.vaxino.R
 
 class CityAndVaccine : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +16,7 @@ class CityAndVaccine : AppCompatActivity() {
 
         ArrayAdapter.createFromResource(
             this,
-            R.array.City_array,
+                R.array.City_array,
             android.R.layout.simple_spinner_item
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -49,7 +44,7 @@ class CityAndVaccine : AppCompatActivity() {
         val spinner_Vaccine : Spinner = findViewById(R.id.spinner_Vaccine)
         ArrayAdapter.createFromResource(
             this,
-            R.array.Vaccine_array,
+                R.array.Vaccine_array,
             android.R.layout.simple_spinner_item
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
