@@ -1,5 +1,5 @@
 <resources>
-    <string-array name="City_array">
+    <array name="City_array">
         <item>...</item>
         <item>Isfahan</item>
         <item>Shahin Shar</item>
@@ -8,8 +8,8 @@
         <item>Khorasgun</item>
         <item>Sepahan Shahr</item>
         <item>Falavarjan</item>
-    </string-array>
-    <string-array name="Vaccine_array">
+    </array>
+    <array name="Vaccine_array">
         <item>...</item>
         <item>BCG</item>
         <item>DPT</item>
@@ -18,7 +18,7 @@
         <item>MMR</item>
         <item>TT</item>
         <item>Hep.B</item>
-    </string-array>
+    </array>
     <string name="app_name">Vaxino</string>
     <string name="logo_vaxino">Logo Vaxino</string>
     <string name="follow_up">Search</string>
