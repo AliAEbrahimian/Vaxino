@@ -1,5 +1,6 @@
 <resources>
     <string-array name="City_array">
+        <item>...</item>
         <item>Isfahan</item>
         <item>Shahin Shar</item>
         <item>Khomeini Shahr</item>
@@ -9,6 +10,7 @@
         <item>Falavarjan</item>
     </string-array>
     <string-array name="Vaccine_array">
+        <item>...</item>
         <item>BCG</item>
         <item>DPT</item>
         <item>DT And Td</item>
@@ -29,4 +31,6 @@
     <string name="Isfahan">Isfahan</string>
     <string name="Tehran">Tehran</string>
     <string name="shiraz">Shiraz</string>
+    <string name="www_vaxino_ir">www.vaxino.ir</string>
+    <string name="todo">TODO</string>
 </resources>
