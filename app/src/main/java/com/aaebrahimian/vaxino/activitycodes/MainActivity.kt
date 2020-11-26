@@ -24,8 +24,8 @@ class MainActivity : AppCompatActivity() {
         txt_Main.animate().setDuration(1500).alpha(1f)
         txt_Main.typeface = ResourcesCompat.getFont(this, R.font.frission)
         txt_Main.text = "Description:\n" +
-                "By pressing the START VACCINE button you will enter the vaccination stage\n" +
-                "By pressing the SEARCH button you will recover your data"
+                "1. By pressing the START VACCINE button you will enter the vaccination stage\n" +
+                "2. By pressing the SEARCH button you will recover your data"
 
         btn_Start_Vaccine.typeface = ResourcesCompat.getFont(this, R.font.frission)
         btn_Start_Vaccine.setOnClickListener {

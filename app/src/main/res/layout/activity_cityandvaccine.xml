@@ -9,39 +9,57 @@
     tools:context=".activitycodes.CityAndVaccine">
 
 
-    <TextView
-        android:id="@+id/txt_City"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
+        android:fillViewport="true"
         android:layout_margin="10dp"
-        android:textAlignment="center"
         android:layout_marginTop="10dp"
-        android:textSize="40sp"
-        android:background="@drawable/design_text_view"/>
+        android:background="@drawable/design_text_view">
+
+        <TextView
+            android:id="@+id/txt_City"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textAlignment="viewStart"
+            android:textSize="40sp"
+            android:textColor="#000000"/>
+    </androidx.core.widget.NestedScrollView>
 
     <Spinner
         android:id="@+id/spinner_City"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        />
-
-    <TextView
-        android:id="@+id/txt_Vaccine"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:layout_margin="10dp"
         android:textAlignment="center"
-        android:layout_marginTop="10dp"
-        android:textSize="40sp"
-        android:background="@drawable/design_text_view"/>
+        />
 
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:fillViewport="true"
+        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/design_text_view">
+
+        <TextView
+            android:id="@+id/txt_Vaccine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textAlignment="viewStart"
+            android:textSize="40sp"
+            android:textColor="#000000"/>
+    </androidx.core.widget.NestedScrollView>
 
     <Spinner
         android:id="@+id/spinner_Vaccine"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:layout_margin="10dp"
+        android:textAlignment="center"
         />
 
     <Button
