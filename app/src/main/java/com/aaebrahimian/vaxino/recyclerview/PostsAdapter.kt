@@ -1,31 +1,48 @@
 package com.aaebrahimian.vaxino.recyclerview
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.aaebrahimian.vaxino.R
 import kotlinx.android.synthetic.main.item_1.view.*
 
 
-class PostsAdapter (private val datalist : MutableList<Post_Model>): RecyclerView.Adapter<MyHolder>(){
-    private lateinit var context : Context
-    override fun getItemCount(): Int = datalist.size
+class PostsAdapter(private val dataSet: Array<String>) :
+        RecyclerView.Adapter<PostsAdapter.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
-        context = parent.context
-        return MyHolder(LayoutInflater.from(context).inflate(R.layout.item_1, parent, false))
+    /**
+     * Provide a reference to the type of views that you are using
+     * (custom ViewHolder).
+     */
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val textView: TextView
+
+        init {
+            // Define click listener for the ViewHolder's View.
+            textView = view.findViewById(R.id.textView)
+        }
     }
 
-    override fun onBindViewHolder(holder: MyHolder, position: Int) {
-        val data = datalist[position]
+    // Create new views (invoked by the layout manager)
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
+        // Create a new view, which defines the UI of the list item
+        val view = LayoutInflater.from(viewGroup.context)
+                .inflate(R.layout.text_row_item, viewGroup, false)
 
-        val txt_title = holder.itemView.txt_Title
-        val txt_body = holder.itemView.txt_Body
-        val img_Item = holder.itemView.img_Item
+        return ViewHolder(view)
     }
-    inner class MyHolder(itemView: View) : RecyclerView.ViewHolder (itemView) {
+
+    // Replace the contents of a view (invoked by the layout manager)
+    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
+
+        // Get element from your dataset at this position and replace the
+        // contents of the view with that element
+        viewHolder.textView.text = dataSet[position]
     }
+
+    // Return the size of your dataset (invoked by the layout manager)
+    override fun getItemCount() = dataSet.size
 
 }
