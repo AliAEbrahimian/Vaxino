@@ -1,5 +1,6 @@
 package com.aaebrahimian.vaxino.activitycodes
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -13,6 +14,10 @@ import kotlinx.android.synthetic.main.activity_cityandvaccine.*
 class CityAndVaccine : AppCompatActivity() {
 
     val statics:Statics = Statics()
+    var vaccine = ""
+    var city = ""
+    var cityposition = 0
+    var vaccineposition = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +28,6 @@ class CityAndVaccine : AppCompatActivity() {
         txt_City.animate().setDuration(1500).alpha(1f)
         txt_City.typeface = ResourcesCompat.getFont(this, R.font.frission)
         txt_City.text = "1. You can select your desired city by hitting the spinner below."
-
         ArrayAdapter.createFromResource(
             this,
                 R.array.City_array,
@@ -39,8 +43,10 @@ class CityAndVaccine : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
-
-                Toast.makeText(this@CityAndVaccine, "You select ${statics.CityList[position]}", Toast.LENGTH_SHORT).show()
+                statics.CityList.get(position).also { cityposition = position }
+                city = statics.CityList[cityposition]
+                //Toast.makeText(this@CityAndVaccine, "You select ${statics.CityList[position]}", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this@CityAndVaccine,"position" + cityposition ,Toast.LENGTH_SHORT).show()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -50,11 +56,11 @@ class CityAndVaccine : AppCompatActivity() {
 
         }
 
+
         txt_Vaccine.alpha = 0f
         txt_Vaccine.animate().setDuration(1500).alpha(1f)
         txt_Vaccine.typeface = ResourcesCompat.getFont(this, R.font.frission)
         txt_Vaccine.text = "2. You can select the vaccine you want by hitting the spinner below."
-
         ArrayAdapter.createFromResource(
             this,
                 R.array.Vaccine_array,
@@ -63,8 +69,33 @@ class CityAndVaccine : AppCompatActivity() {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinner_Vaccine.adapter = adapter
         }
+        spinner_Vaccine.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+            ) {
+                statics.VaccineList.get(position).also { vaccineposition = position }
+                vaccine = statics.VaccineList[vaccineposition]
+                //Toast.makeText(this@CityAndVaccine, "You select ${statics.VaccineList[position]}", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this@CityAndVaccine,"position" + vaccineposition ,Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+        }
 
         btn_Selection.setOnClickListener {
+            if( this.cityposition === 0 || this.vaccineposition === 0) {
+                Toast.makeText( this@CityAndVaccine, "You not select item" , Toast.LENGTH_SHORT).show()
+            }
+            else{
+                Toast.makeText( this@CityAndVaccine, "You select items, ${city} * ${vaccine}" , Toast.LENGTH_SHORT).show()
+                val intent = Intent (this, ClinicActivity::class.java)
+                startActivity(intent)
+            }
+
 
         }
     }
