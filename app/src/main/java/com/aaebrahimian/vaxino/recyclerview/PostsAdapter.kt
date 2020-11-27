@@ -29,7 +29,7 @@ class PostsAdapter(private val dataSet: Array<String>) :
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         // Create a new view, which defines the UI of the list item
         val view = LayoutInflater.from(viewGroup.context)
-                .inflate(R.layout.text_row_item, viewGroup, false)
+                .inflate(R.layout.item_1, viewGroup, false)
 
         return ViewHolder(view)
     }
@@ -40,6 +40,7 @@ class PostsAdapter(private val dataSet: Array<String>) :
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
         viewHolder.textView.text = dataSet[position]
+
     }
 
     // Return the size of your dataset (invoked by the layout manager)

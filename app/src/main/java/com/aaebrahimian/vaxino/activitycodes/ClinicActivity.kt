@@ -1,11 +1,9 @@
 package com.aaebrahimian.vaxino.activitycodes
 
-import android.app.VoiceInteractor
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.aaebrahimian.vaxino.R
-import com.aaebrahimian.vaxino.recyclerview.Post_Model
 import com.aaebrahimian.vaxino.recyclerview.PostsAdapter
 import com.android.volley.Request
 import com.android.volley.Response
