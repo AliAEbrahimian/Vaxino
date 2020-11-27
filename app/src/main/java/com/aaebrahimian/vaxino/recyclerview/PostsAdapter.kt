@@ -2,6 +2,7 @@ package com.aaebrahimian.vaxino.recyclerview
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.aaebrahimian.vaxino.R
@@ -23,7 +24,8 @@ class PostsAdapter (private val datalist : MutableList<Post_Model>): RecyclerVie
         val txt_title = holder.itemView.txt_Title
         val txt_body = holder.itemView.txt_Body
         val img_Item = holder.itemView.img_Item
-}
-
+    }
+    inner class MyHolder(itemView: View) : RecyclerView.ViewHolder (itemView) {
+    }
 
 }
