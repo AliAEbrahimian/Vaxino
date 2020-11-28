@@ -2,9 +2,6 @@ package com.aaebrahimian.vaxino.activitycodes
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.LinearLayout
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.aaebrahimian.vaxino.R
 import com.aaebrahimian.vaxino.db.DBOpenHelper
 import com.aaebrahimian.vaxino.recyclerview.PostsAdapter
