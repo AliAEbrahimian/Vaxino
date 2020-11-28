@@ -20,7 +20,7 @@ class ClinicActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_clinic)
 
-        dbopenHelper = DBOpenHelper(this, null ,null ,1)
+        dbopenHelper = DBOpenHelper(this)
         viewDataSet()
     }
 
