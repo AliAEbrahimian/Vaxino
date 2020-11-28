@@ -8,20 +8,19 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.aaebrahimian.vaxino.R
-import com.aaebrahimian.vaxino.model.Models
+import com.aaebrahimian.vaxino.model.Clinic
 import kotlinx.android.synthetic.main.item_1.view.*
 
 
-class PostsAdapter(mCtx:Context, private val dataSet: ArrayList<Models>) :
+class PostsAdapter(context: Context, private val dataSet: ArrayList<Clinic>) :
         RecyclerView.Adapter<PostsAdapter.ViewHolder>() {
 
     /**
      * Provide a reference to the type of views that you are using
      * (custom ViewHolder).
      */
-    val mCtx = mCtx
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textTitle : TextView = itemView.txt_Title
         val textBody : TextView = itemView.txt_Body
         val imgItem : ImageView = itemView.img_Item
@@ -45,9 +44,10 @@ class PostsAdapter(mCtx:Context, private val dataSet: ArrayList<Models>) :
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        val model : Models = dataSet[position]
-        viewHolder.textTitle.text = model.nameclinic
-        viewHolder.textBody.text = model.address
+        val model : Clinic = dataSet[position]
+
+        viewHolder.textTitle.text = model.title
+        viewHolder.textBody.text = model.body
 
     }
 
