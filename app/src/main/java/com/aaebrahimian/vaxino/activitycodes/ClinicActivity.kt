@@ -19,6 +19,7 @@ class ClinicActivity : AppCompatActivity() {
 
         dbopenHelper = DBOpenHelper(this)
         viewDataSet()
+
     }
 
     private fun  viewDataSet (){
