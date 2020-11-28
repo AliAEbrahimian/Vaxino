@@ -2,9 +2,11 @@ package com.aaebrahimian.vaxino.db
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
+import com.aaebrahimian.vaxino.activitycodes.ClinicActivity
 import com.aaebrahimian.vaxino.model.Clinic
 
 
@@ -47,38 +49,30 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
         onCreate(db)
     }
 
-    fun getDataSet (mCtx: Context) : ArrayList<Clinic>{
+    fun getDataSet (db: SQLiteDatabase?) : ArrayList<Clinic>{
 
-        val qry = "SELECT * FROM $NAME_TABLE_CLINIC"
-        val db = this.readableDatabase
-        val cursor = db.rawQuery(qry,null)
         val dataSet = ArrayList<Clinic>()
 
-        if(cursor.count == 0)
-            Toast.makeText(mCtx, "No records found",Toast.LENGTH_LONG).show()
-        else{
-            while (cursor.moveToNext()){
+        var cursor : Cursor? =
+                db?.query(NAME_TABLE_CLINIC, arrayOf( COLUMN_IMAGE_CLINIC, COLUMN_NAME_CLINIC, COLUMN_ADDRESS_CLINIC), null, null, null, null, null)
 
-                val models = Clinic()
-                models.id = cursor.getInt(cursor.getColumnIndex(COLUMN_NUMBER_OF_CLINIC))
-                models.nameclinic = cursor.getString(cursor.getColumnIndex(COLUMN_NAME_CLINIC))
-                models.address = cursor.getString(cursor.getColumnIndex(COLUMN_ADDRESS_CLINIC))
-                dataSet.add(models)
-
+            var clinicList = arrayListOf<Clinic>()
+            while (cursor!!.moveToNext()){
+                var clinic = Clinic(cursor.getInt(0), cursor.getString(1), cursor.getString(2))
+                clinicList.add(clinic)
             }
-            Toast.makeText(mCtx, "${cursor.count.toString()} records found",Toast.LENGTH_LONG).show()
-        }
-        fun insertClinicTable(db: SQLiteDatabase?, image : Int, title: String, body : String){
-            val contentValues = ContentValues()
-            contentValues.put(COLUMN_IMAGE_CLINIC, image)
-            contentValues.put(COLUMN_NAME_CLINIC, title)
-            contentValues.put(COLUMN_ADDRESS_CLINIC, body)
-            db?.insert(NAME_TABLE_CLINIC, null, contentValues)
-        }
         cursor.close()
-        db.close()
+
         return dataSet
 
+    }
+
+    fun insertClinicTable(db: SQLiteDatabase?, image : Int, title: String, body : String){
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_IMAGE_CLINIC, image)
+        contentValues.put(COLUMN_NAME_CLINIC, title)
+        contentValues.put(COLUMN_ADDRESS_CLINIC, body)
+        db?.insert(NAME_TABLE_CLINIC, null, contentValues)
     }
 
 }
