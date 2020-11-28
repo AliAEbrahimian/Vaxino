@@ -26,5 +26,5 @@ class ClinicActivity : AppCompatActivity() {
         val list = dbopenHelper.getDataSetClinic(this)
         val adapter = PostsAdapter(this, list)
         clinic_RecyclerView.adapter = adapter
-        }
+    }
 }
