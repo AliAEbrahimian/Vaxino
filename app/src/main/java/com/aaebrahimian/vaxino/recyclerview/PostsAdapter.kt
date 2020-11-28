@@ -1,7 +1,6 @@
 package com.aaebrahimian.vaxino.recyclerview
 
 import android.content.Context
-import android.graphics.ColorSpace
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,24 +12,22 @@ import com.aaebrahimian.vaxino.model.Models
 import kotlinx.android.synthetic.main.item_1.view.*
 
 
-class PostsAdapter(mCtx :Context, private val dataSet: Array<String>) :
+class PostsAdapter(mCtx:Context, private val dataSet: ArrayList<Models>) :
         RecyclerView.Adapter<PostsAdapter.ViewHolder>() {
 
     /**
      * Provide a reference to the type of views that you are using
      * (custom ViewHolder).
      */
+    val mCtx = mCtx
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val textTitle : TextView
-        val textBody : TextView
-        val imgItem : ImageView
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val textTitle : TextView = itemView.txt_Title
+        val textBody : TextView = itemView.txt_Body
+        val imgItem : ImageView = itemView.img_Item
 
         init {
             // Define click listener for the ViewHolder's View.
-            textTitle = itemView.txt_Title
-            textBody = itemView.txt_Body
-            imgItem = itemView.img_Item
         }
     }
 
@@ -49,7 +46,8 @@ class PostsAdapter(mCtx :Context, private val dataSet: Array<String>) :
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
         val model : Models = dataSet[position]
-
+        viewHolder.textTitle.text = model.nameclinic
+        viewHolder.textBody.text = model.address
 
     }
 
