@@ -5,7 +5,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
-import com.aaebrahimian.vaxino.model.Models
+import com.aaebrahimian.vaxino.model.Clinic
 
 
 class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null , 1 ) {
@@ -21,7 +21,7 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
         const val COLUMN_IMAGE_CLINIC = "img_item"
 
         const val NAME_TABLE_PERSON = "person"
-        const val COLUMN_REGISTRATION_NUMBER = "number"
+        const val COLUMN_SSN = "ssn"
         const val COLUMN_FIRST_NAME = "firstname"
         const val COLUMN_LAST_NAME = "lastname"
         const val COLUMN_BIRTH_DAY = "birthday"
@@ -38,7 +38,7 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
         val createClinicTable = "CREATE TABLE $NAME_TABLE_CLINIC($COLUMN_NUMBER_OF_CLINIC INTEGER  PRIMARY KEY AUTOINCREMENT NOT NULL, $COLUMN_NAME_CLINIC TEXT , $COLUMN_ADDRESS_CLINIC TEXT , $COLUMN_IMAGE_CLINIC IMAGE)"
         db?.execSQL(createClinicTable)
 
-        val createPersonTable = "CREATE TABLE $NAME_TABLE_PERSON ($COLUMN_REGISTRATION_NUMBER INTEGER AUTOINCREMENT , $COLUMN_FIRST_NAME TEXT, $COLUMN_LAST_NAME TEXT,$COLUMN_BIRTH_DAY DATE,$COLUMN_ID INTEGER PRIMARY KEY NOT NULL, $COLUMN_GENDER, BIT$COLUMN_PHONE_NUMBER NUMBER)"
+        val createPersonTable = "CREATE TABLE $NAME_TABLE_PERSON ($COLUMN_SSN INTEGER,$COLUMN_FIRST_NAME TEXT,$COLUMN_LAST_NAME TEXT,$COLUMN_BIRTH_DAY DATE,$COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, $COLUMN_GENDER BIT$COLUMN_PHONE_NUMBER NUMBER)"
         db?.execSQL(createPersonTable)
     }
 
@@ -47,19 +47,19 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
         onCreate(db)
     }
 
-    fun getDataSet (mCtx: Context) : ArrayList<Models>{
+    fun getDataSet (mCtx: Context) : ArrayList<Clinic>{
 
         val qry = "SELECT * FROM $NAME_TABLE_CLINIC"
         val db = this.readableDatabase
         val cursor = db.rawQuery(qry,null)
-        val dataSet = ArrayList<Models>()
+        val dataSet = ArrayList<Clinic>()
 
         if(cursor.count == 0)
             Toast.makeText(mCtx, "No records found",Toast.LENGTH_LONG).show()
         else{
             while (cursor.moveToNext()){
 
-                val models = Models()
+                val models = Clinic()
                 models.id = cursor.getInt(cursor.getColumnIndex(COLUMN_NUMBER_OF_CLINIC))
                 models.nameclinic = cursor.getString(cursor.getColumnIndex(COLUMN_NAME_CLINIC))
                 models.address = cursor.getString(cursor.getColumnIndex(COLUMN_ADDRESS_CLINIC))
@@ -82,3 +82,4 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
     }
 
 }
+
