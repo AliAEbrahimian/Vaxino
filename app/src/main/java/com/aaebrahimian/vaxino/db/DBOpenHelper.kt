@@ -6,7 +6,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.aaebrahimian.vaxino.R
-import com.aaebrahimian.vaxino.activitycodes.ClinicActivity
+import com.aaebrahimian.vaxino.activitycodes.CityAndVaccine
 import com.aaebrahimian.vaxino.model.Clinic
 import com.aaebrahimian.vaxino.model.Person
 
@@ -14,11 +14,13 @@ import com.aaebrahimian.vaxino.model.Person
 class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null , 1 ) {
 
     companion object{
+        var clinicNumber : CityAndVaccine = CityAndVaccine()
         const val DATABASE_VERSION = 1
         const val DATABASE_NAME = "Vaxino.db"
 
         const val NAME_TABLE_CLINIC = "clinic"
         const val COLUMN_NUMBER_OF_CLINIC = "id"
+        const val COLUMN_ID_CLINIC = "id"
         const val COLUMN_NAME_CLINIC = "text_title"
         const val COLUMN_ADDRESS_CLINIC = "text_body"
         const val COLUMN_IMAGE_CLINIC = "img_item"
@@ -28,7 +30,7 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
         const val COLUMN_FIRST_NAME = "firstname"
         const val COLUMN_LAST_NAME = "lastname"
         const val COLUMN_AGE = "birthday"
-        const val COLUMN_ID = "id"
+        const val COLUMN_ID_PERSON = "id"
         const val COLUMN_GENDER = "gender"
         const val COLUMN_PHONE_NUMBER = "phone"
 
@@ -38,17 +40,17 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
 
     override fun onCreate (db: SQLiteDatabase?) {
 
-        val createClinicTable = "CREATE TABLE IF NOT EXISTS $NAME_TABLE_CLINIC($COLUMN_NUMBER_OF_CLINIC INTEGER  PRIMARY KEY AUTOINCREMENT NOT NULL, $COLUMN_NAME_CLINIC TEXT , $COLUMN_ADDRESS_CLINIC TEXT , $COLUMN_IMAGE_CLINIC IMAGE)"
+        val createClinicTable = "CREATE TABLE IF NOT EXISTS $NAME_TABLE_CLINIC($COLUMN_ID_CLINIC INTEGER  PRIMARY KEY AUTOINCREMENT NOT NULL, $COLUMN_NUMBER_OF_CLINIC INTEGER, $COLUMN_NAME_CLINIC TEXT , $COLUMN_ADDRESS_CLINIC TEXT , $COLUMN_IMAGE_CLINIC IMAGE)"
         db?.execSQL(createClinicTable)
+        insertClinicTable(db,0,0,"","")
+        insertClinicTable(db, clinicNumber.vaccineposition,R.drawable.images,"Mehregan","Sheybahaie")
+        insertClinicTable(db, clinicNumber.vaccineposition,R.drawable.images,"Mehregan","Sheybahaie")
+        insertClinicTable(db, clinicNumber.vaccineposition,R.drawable.images,"Mehregan","Sheybahaie")
+        insertClinicTable(db, clinicNumber.vaccineposition,R.drawable.images,"Mehregan","Sheybahaie")
+        insertClinicTable(db, clinicNumber.vaccineposition,R.drawable.images,"Mehregan","Sheybahaie")
+        insertClinicTable(db, clinicNumber.vaccineposition,R.drawable.images,"Mehregan","Sheybahaie")
 
-        insertClinicTable(db,R.drawable.images,"Mehregan","Sheybahaie")
-        insertClinicTable(db,R.drawable.images,"Mehregan","Sheybahaie")
-        insertClinicTable(db,R.drawable.images,"Mehregan","Sheybahaie")
-        insertClinicTable(db,R.drawable.images,"Mehregan","Sheybahaie")
-        insertClinicTable(db,R.drawable.images,"Mehregan","Sheybahaie")
-        insertClinicTable(db,R.drawable.images,"Mehregan","Sheybahaie")
-
-        val createPersonTable = "CREATE TABLE IF NOT EXISTS $NAME_TABLE_PERSON ($COLUMN_SSN INTEGER,$COLUMN_FIRST_NAME TEXT,$COLUMN_LAST_NAME TEXT,$COLUMN_AGE DATE,$COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, $COLUMN_GENDER INTEGER,$COLUMN_PHONE_NUMBER INTEGER)"
+        val createPersonTable = "CREATE TABLE IF NOT EXISTS $NAME_TABLE_PERSON ($COLUMN_SSN INTEGER,$COLUMN_FIRST_NAME TEXT,$COLUMN_LAST_NAME TEXT,$COLUMN_AGE DATE,$COLUMN_ID_PERSON INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, $COLUMN_GENDER INTEGER,$COLUMN_PHONE_NUMBER INTEGER)"
         db?.execSQL(createPersonTable)
 
     }
@@ -62,10 +64,10 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
         val dataSet : ArrayList<Clinic> = ArrayList<Clinic>()
 
         var cursor : Cursor? =
-                db?.query(NAME_TABLE_CLINIC, arrayOf( COLUMN_IMAGE_CLINIC, COLUMN_NAME_CLINIC, COLUMN_ADDRESS_CLINIC), null, null, null, null, null)
+                db?.query(NAME_TABLE_CLINIC, arrayOf(COLUMN_NUMBER_OF_CLINIC, COLUMN_IMAGE_CLINIC, COLUMN_NAME_CLINIC, COLUMN_ADDRESS_CLINIC), null, null, null, null, null)
 
         while (cursor!!.moveToNext()){
-                var clinic = Clinic(cursor.getInt(0), cursor.getString(1), cursor.getString(2))
+                var clinic = Clinic(cursor.getInt(0),cursor.getInt(1), cursor.getString(2), cursor.getString(3))
                 dataSet.add(clinic)
         }
         cursor.close()
@@ -77,7 +79,7 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
         val setPerson :ArrayList<Person> = ArrayList<Person>()
 
         var cursor : Cursor? =
-                db?.query(NAME_TABLE_PERSON, arrayOf( COLUMN_SSN, COLUMN_FIRST_NAME, COLUMN_LAST_NAME, COLUMN_AGE, COLUMN_ID, COLUMN_GENDER, COLUMN_PHONE_NUMBER), null, null, null, null, null)
+                db?.query(NAME_TABLE_PERSON, arrayOf( COLUMN_SSN, COLUMN_FIRST_NAME, COLUMN_LAST_NAME, COLUMN_AGE, COLUMN_ID_PERSON, COLUMN_GENDER, COLUMN_PHONE_NUMBER), null, null, null, null, null)
 
         while (cursor!!.moveToNext()){
             var person = Person(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getInt(3),cursor.getShort(4),cursor.getInt(5))
@@ -88,12 +90,14 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
 
     }
 
-    fun insertClinicTable(db: SQLiteDatabase?, image : Int, title: String, body : String){
+    fun insertClinicTable(db: SQLiteDatabase?,number : Int, image : Int, title: String, body : String){
 
         val contentValues = ContentValues()
+        contentValues.put(COLUMN_NUMBER_OF_CLINIC , number)
         contentValues.put(COLUMN_IMAGE_CLINIC, image)
         contentValues.put(COLUMN_NAME_CLINIC, title)
         contentValues.put(COLUMN_ADDRESS_CLINIC, body)
+
 
         db?.insert(NAME_TABLE_CLINIC, null, contentValues)
     }
