@@ -16,8 +16,8 @@ class CityAndVaccine : AppCompatActivity() {
     val statics:Statics = Statics()
     var vaccine = ""
     var city = ""
-    var cityposition = 0
-    var vaccineposition = 0
+    var cityPosition = 0
+    var vaccinePosition = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,8 +43,8 @@ class CityAndVaccine : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
-                statics.CityList.get(position).also { cityposition = position }
-                city = statics.CityList[cityposition]
+                statics.CityList.get(position).also { cityPosition = position }
+                city = statics.CityList[cityPosition]
                 //Toast.makeText(this@CityAndVaccine, "You select ${statics.CityList[position]}", Toast.LENGTH_SHORT).show()
                 //Toast.makeText(this@CityAndVaccine,"position" + cityposition ,Toast.LENGTH_SHORT).show()
             }
@@ -76,8 +76,8 @@ class CityAndVaccine : AppCompatActivity() {
                     position: Int,
                     id: Long
             ) {
-                statics.VaccineList.get(position).also { vaccineposition = position }
-                vaccine = statics.VaccineList[vaccineposition]
+                statics.VaccineList.get(position).also { vaccinePosition = position }
+                vaccine = statics.VaccineList[vaccinePosition]
                 //Toast.makeText(this@CityAndVaccine, "You select ${statics.VaccineList[position]}", Toast.LENGTH_SHORT).show()
                 //Toast.makeText(this@CityAndVaccine,"position" + vaccineposition ,Toast.LENGTH_SHORT).show()
             }
@@ -87,7 +87,7 @@ class CityAndVaccine : AppCompatActivity() {
         }
 
         btn_Selection.setOnClickListener {
-            if( this.cityposition === 0 || this.vaccineposition === 0) {
+            if( this.cityPosition === 0 || this.vaccinePosition === 0) {
                 Toast.makeText( this@CityAndVaccine, "You not select item" , Toast.LENGTH_SHORT).show()
             }
             else{

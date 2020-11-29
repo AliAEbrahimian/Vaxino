@@ -3,7 +3,7 @@ package com.aaebrahimian.vaxino.model
 import android.os.Parcel
 import android.os.Parcelable
 
-class Clinic(var number : Int ,var image: Int, var title: String?, var body: String?): Parcelable{
+class Clinic(var number: Int ,var image: Int, var title: String?, var body: String?): Parcelable{
     constructor(parcel: Parcel) : this(
             parcel.readInt(),
             parcel.readInt(),
@@ -13,10 +13,10 @@ class Clinic(var number : Int ,var image: Int, var title: String?, var body: Str
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeInt(number)
         parcel.writeInt(image)
         parcel.writeString(title)
         parcel.writeString(body)
-        parcel.writeInt(number)
     }
 
     override fun describeContents(): Int {

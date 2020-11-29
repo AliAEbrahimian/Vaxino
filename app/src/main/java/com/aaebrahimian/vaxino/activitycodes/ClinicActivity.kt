@@ -10,14 +10,13 @@ import kotlinx.android.synthetic.main.activity_clinic.*
 
 class ClinicActivity : AppCompatActivity() {
 
-         var dbOpenHelper = DBOpenHelper(this)
+    var dbOpenHelper = DBOpenHelper(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_clinic)
 
         val list = dbOpenHelper.getDataSetClinic(dbOpenHelper.readableDatabase)
-
         val adapter = RecViewArrayAdapted(this,list)
         clinic_RecyclerView.adapter = adapter
         clinic_RecyclerView.layoutManager = LinearLayoutManager(this)
