@@ -8,11 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.aaebrahimian.vaxino.R
-import com.aaebrahimian.vaxino.activitycodes.ClinicActivity
 import com.aaebrahimian.vaxino.activitycodes.InformationClinicActivity
 import com.aaebrahimian.vaxino.model.Clinic
 
@@ -34,6 +32,7 @@ class RecViewArrayAdapted(var context: Context,private val dataSet: ArrayList<Cl
         init {
 
         }
+
 
 
     }
@@ -59,9 +58,9 @@ class RecViewArrayAdapted(var context: Context,private val dataSet: ArrayList<Cl
 
 
         viewHolder.itemView.setOnClickListener {
-            val intent = Intent(context,InformationClinicActivity::class.java)
+            val intent = Intent(context, InformationClinicActivity::class.java)
             intent.putExtra("1",dataSet[position])
-            startActivity(intent)
+            startActivity(context, intent, null)
         }
     }
 
