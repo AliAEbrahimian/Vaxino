@@ -5,6 +5,7 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.aaebrahimian.vaxino.R
 import com.aaebrahimian.vaxino.activitycodes.ClinicActivity
 import com.aaebrahimian.vaxino.model.Clinic
 import com.aaebrahimian.vaxino.model.Person
@@ -40,12 +41,12 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
         val createClinicTable = "CREATE TABLE IF NOT EXISTS $NAME_TABLE_CLINIC($COLUMN_NUMBER_OF_CLINIC INTEGER  PRIMARY KEY AUTOINCREMENT NOT NULL, $COLUMN_NAME_CLINIC TEXT , $COLUMN_ADDRESS_CLINIC TEXT , $COLUMN_IMAGE_CLINIC IMAGE)"
         db?.execSQL(createClinicTable)
 
-        insertClinicTable(db,1,"Mehregan","Sheybahaie")
-        insertClinicTable(db,1,"Mehregan","Sheybahaie")
-        insertClinicTable(db,1,"Mehregan","Sheybahaie")
-        insertClinicTable(db,1,"Mehregan","Sheybahaie")
-        insertClinicTable(db,1,"Mehregan","Sheybahaie")
-        insertClinicTable(db,1,"Mehregan","Sheybahaie")
+        insertClinicTable(db, R.drawable.sad,"Mehregan","Sheybahaie")
+        insertClinicTable(db,R.drawable.sad,"Mehregan","Sheybahaie")
+        insertClinicTable(db,R.drawable.sad,"Mehregan","Sheybahaie")
+        insertClinicTable(db,R.drawable.sad,"Mehregan","Sheybahaie")
+        insertClinicTable(db,R.drawable.sad,"Mehregan","Sheybahaie")
+        insertClinicTable(db,R.drawable.sad,"Mehregan","Sheybahaie")
 
         val createPersonTable = "CREATE TABLE IF NOT EXISTS $NAME_TABLE_PERSON ($COLUMN_SSN INTEGER,$COLUMN_FIRST_NAME TEXT,$COLUMN_LAST_NAME TEXT,$COLUMN_AGE DATE,$COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, $COLUMN_GENDER INTEGER,$COLUMN_PHONE_NUMBER INTEGER)"
         db?.execSQL(createPersonTable)

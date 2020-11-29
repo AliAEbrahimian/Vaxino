@@ -1,7 +1,6 @@
 package com.aaebrahimian.vaxino.recyclerview
 
-import android.content.Context
-import android.graphics.drawable.Drawable
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,11 +9,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.aaebrahimian.vaxino.R
 import com.aaebrahimian.vaxino.model.Clinic
-import kotlinx.android.synthetic.main.item_1.view.*
 
 
-class PostsAdapter(context: Context, private val dataSet: ArrayList<Clinic>) :
-        RecyclerView.Adapter<PostsAdapter.ViewHolder>() {
+class RecViewArrayAdapted(private val dataSet: ArrayList<Clinic>) :
+        RecyclerView.Adapter<RecViewArrayAdapted.ViewHolder>() {
 
     /**
      * Provide a reference to the type of views that you are using
@@ -22,12 +20,14 @@ class PostsAdapter(context: Context, private val dataSet: ArrayList<Clinic>) :
      */
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val textTitle : TextView = itemView.txt_Title
-        val textBody : TextView = itemView.txt_Body
-        val imgItem : ImageView = itemView.img_Item
+        val textTitle : TextView = view.findViewById(R.id.txt_Title)
+        val textBody : TextView = view.findViewById(R.id.txt_Body)
+        val imgItem : ImageView = view.findViewById(R.id.img_Item)
 
         init {
-            // Define click listener for the ViewHolder's View.
+                view.setOnClickListener{
+
+            }
         }
     }
 
@@ -45,11 +45,10 @@ class PostsAdapter(context: Context, private val dataSet: ArrayList<Clinic>) :
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        val clinic : Clinic = dataSet[position]
 
-        viewHolder.imgItem.setImageResource(R.mipmap.images)
-        viewHolder.textTitle.text = clinic.title
-        viewHolder.textBody.text = clinic.body
+        viewHolder.imgItem.setImageResource(dataSet[position].image)
+        viewHolder.textTitle.text = dataSet[position].title
+        viewHolder.textBody.text  = dataSet[position].body
 
     }
 
