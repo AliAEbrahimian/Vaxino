@@ -1,17 +1,23 @@
 package com.aaebrahimian.vaxino.recyclerview
 
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.aaebrahimian.vaxino.R
+import com.aaebrahimian.vaxino.activitycodes.ClinicActivity
+import com.aaebrahimian.vaxino.activitycodes.InformationClinicActivity
 import com.aaebrahimian.vaxino.model.Clinic
 
 
-class RecViewArrayAdapted(private val dataSet: ArrayList<Clinic>) :
+class RecViewArrayAdapted(var context: Context,private val dataSet: ArrayList<Clinic>) :
         RecyclerView.Adapter<RecViewArrayAdapted.ViewHolder>() {
 
     /**
@@ -19,16 +25,17 @@ class RecViewArrayAdapted(private val dataSet: ArrayList<Clinic>) :
      * (custom ViewHolder).
      */
 
+
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textTitle : TextView = view.findViewById(R.id.txt_Title)
         val textBody : TextView = view.findViewById(R.id.txt_Body)
         val imgItem : ImageView = view.findViewById(R.id.img_Item)
 
         init {
-                view.setOnClickListener{
 
-            }
         }
+
+
     }
 
     // Create new views (invoked by the layout manager)
@@ -50,7 +57,14 @@ class RecViewArrayAdapted(private val dataSet: ArrayList<Clinic>) :
         viewHolder.textTitle.text = dataSet[position].title
         viewHolder.textBody.text  = dataSet[position].body
 
+
+        viewHolder.itemView.setOnClickListener {
+            val intent = Intent(context,InformationClinicActivity::class.java)
+            intent.putExtra("1",dataSet[position])
+            startActivity(intent)
+        }
     }
+
 
     // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = dataSet.size

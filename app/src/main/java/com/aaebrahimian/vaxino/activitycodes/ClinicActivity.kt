@@ -2,8 +2,6 @@ package com.aaebrahimian.vaxino.activitycodes
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Debug
-import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aaebrahimian.vaxino.R
 import com.aaebrahimian.vaxino.db.DBOpenHelper
@@ -20,7 +18,7 @@ class ClinicActivity : AppCompatActivity() {
 
         val list = dbOpenHelper.getDataSetClinic(dbOpenHelper.readableDatabase)
 
-        val adapter = RecViewArrayAdapted( list)
+        val adapter = RecViewArrayAdapted(this,list)
         clinic_RecyclerView.adapter = adapter
         clinic_RecyclerView.layoutManager = LinearLayoutManager(this)
 
