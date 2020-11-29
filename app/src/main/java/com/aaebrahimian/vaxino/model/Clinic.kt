@@ -3,12 +3,14 @@ package com.aaebrahimian.vaxino.model
 import android.os.Parcel
 import android.os.Parcelable
 
-class Clinic(var number: Int ,var image: Int, var title: String?, var body: String?): Parcelable{
+class Clinic(var number: Int ,var image: Int, var title: String?, var body: String?, var city: Int, var vaccine: Int): Parcelable{
     constructor(parcel: Parcel) : this(
             parcel.readInt(),
             parcel.readInt(),
             parcel.readString(),
-            parcel.readString()
+            parcel.readString(),
+            parcel.readInt(),
+            parcel.readInt()
     ) {
     }
 
@@ -17,6 +19,8 @@ class Clinic(var number: Int ,var image: Int, var title: String?, var body: Stri
         parcel.writeInt(image)
         parcel.writeString(title)
         parcel.writeString(body)
+        parcel.writeInt(city)
+        parcel.writeInt(vaccine)
     }
 
     override fun describeContents(): Int {

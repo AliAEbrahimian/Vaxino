@@ -6,7 +6,6 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.aaebrahimian.vaxino.R
-import com.aaebrahimian.vaxino.activitycodes.CityAndVaccine
 import com.aaebrahimian.vaxino.model.Clinic
 import com.aaebrahimian.vaxino.model.Person
 
@@ -14,16 +13,18 @@ import com.aaebrahimian.vaxino.model.Person
 class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null , 1 ) {
 
     companion object{
-        var clinicNumber : CityAndVaccine = CityAndVaccine()
         const val DATABASE_VERSION = 1
         const val DATABASE_NAME = "Vaxino.db"
 
         const val NAME_TABLE_CLINIC = "clinic"
         const val COLUMN_NUMBER_OF_CLINIC = "number"
         const val COLUMN_ID_CLINIC = "id"
+        const val COLUMN_IMAGE_CLINIC = "img_item"
         const val COLUMN_NAME_CLINIC = "text_title"
         const val COLUMN_ADDRESS_CLINIC = "text_body"
-        const val COLUMN_IMAGE_CLINIC = "img_item"
+        const val COLUMN_CITY = "city"
+        const val COLUMN_VACCINE = "vaccine"
+
 
         const val NAME_TABLE_PERSON = "person"
         const val COLUMN_SSN = "ssn"
@@ -40,56 +41,24 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
 
     override fun onCreate (db: SQLiteDatabase?) {
 
-        val createClinicTable = "CREATE TABLE IF NOT EXISTS $NAME_TABLE_CLINIC($COLUMN_ID_CLINIC INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, $COLUMN_NUMBER_OF_CLINIC INTEGER , $COLUMN_NAME_CLINIC TEXT , $COLUMN_ADDRESS_CLINIC TEXT , $COLUMN_IMAGE_CLINIC IMAGE)"
+        val createClinicTable = "CREATE TABLE IF NOT EXISTS $NAME_TABLE_CLINIC" +
+                "($COLUMN_ID_CLINIC INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+                "$COLUMN_NUMBER_OF_CLINIC INTEGER , " +
+                "$COLUMN_IMAGE_CLINIC IMAGE, " +
+                "$COLUMN_NAME_CLINIC TEXT , " +
+                "$COLUMN_ADDRESS_CLINIC TEXT, " +
+                "$COLUMN_CITY INTEGER, " +
+                "$COLUMN_VACCINE INTEGER)"
         db?.execSQL(createClinicTable)
-
-
-        when (clinicNumber.cityPosition){
-            1 -> {
-                insertClinicTable(db,0,R.drawable.images,"Mehregan Hospital","Sheybahaie")
-                insertClinicTable(db,1,R.drawable.images,"Clinic Isfahan Hospital","Sheybahaie")
-                insertClinicTable(db,2,R.drawable.images,"Al Zahra Hospital","Hakim Nezami")
-                insertClinicTable(db,3,R.drawable.images,"Sina Hospital","Sheybahaie")
-                insertClinicTable(db,4,R.drawable.images,"Kashani Hospital","Sheybahaie")
-                insertClinicTable(db,5,R.drawable.images,"Amin Hospital","Sheybahaie")
-                insertClinicTable(db,6,R.drawable.images,"Feyz Hospital","Sheybahaie")
-                insertClinicTable(db,7,R.drawable.images,"Gharazi Hospital","Sheybahaie")
-                insertClinicTable(db,8,R.drawable.images,"Shariyati Hospital","Sheybahaie")
-                insertClinicTable(db,10,R.drawable.images,"Chamran Hospital","Sheybahaie")
-
-            }
-            2 -> {
-                insertClinicTable(db,1,R.drawable.images,"Goldis Hospital","Sheybahaie")
-            }
-            3 ->{
-                insertClinicTable(db,0,R.drawable.images,"Ashrafi Hospital","Sheybahaie")
-                insertClinicTable(db,1,R.drawable.images,"Saei Hospital","Sheybahaie")
-                insertClinicTable(db,2,R.drawable.images,"9th Dey of Manzariyeh Hospital","Sheybahaie")
-            }
-            4 -> {
-                insertClinicTable(db,0,R.drawable.images,"Fatemeh Al-Zahra Hospital","Sheybahaie")
-                insertClinicTable(db,1,R.drawable.images,"M. Montazeri Hostpital","Sheybahaie")
-                insertClinicTable(db,3,R.drawable.images,"Montazer Hospital","Sheybahaie")
-            }
-            5 -> {
-                insertClinicTable(db,0,R.drawable.images,"Farabi Hospital","Sheybahaie")
-                insertClinicTable(db,1,R.drawable.images,"Dr. Karimi Hospital","Sheybahaie")
-                insertClinicTable(db,2,R.drawable.images,"Darol Shafa Hospital","Sheybahaie")
-                insertClinicTable(db,3,R.drawable.images,"Ferdous Hospital","Sheybahaie")
-                insertClinicTable(db,4,R.drawable.images,"Farabi Hospital","Sheybahaie")
-            }
-            6 -> {
-                insertClinicTable(db,0,R.drawable.images,"Sepahan Hospital","Sheybahaie")
-
-            }
-            7 -> {
-                insertClinicTable(db,0,R.drawable.images,"Emam Khomeini Hospital","Sheybahaie")
-                insertClinicTable(db,1,R.drawable.images,"Shefa Hospital","Sheybahaie")
-            }
-        }
-
-
-        val createPersonTable = "CREATE TABLE IF NOT EXISTS $NAME_TABLE_PERSON ($COLUMN_SSN INTEGER,$COLUMN_FIRST_NAME TEXT,$COLUMN_LAST_NAME TEXT,$COLUMN_AGE DATE,$COLUMN_ID_PERSON INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, $COLUMN_GENDER INTEGER,$COLUMN_PHONE_NUMBER INTEGER)"
+        data(db)
+        val createPersonTable = "CREATE TABLE IF NOT EXISTS $NAME_TABLE_PERSON " +
+                "($COLUMN_SSN INTEGER, " +
+                "$COLUMN_FIRST_NAME TEXT, " +
+                "$COLUMN_LAST_NAME TEXT, " +
+                "$COLUMN_AGE DATE, " +
+                "$COLUMN_ID_PERSON INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+                "$COLUMN_GENDER INTEGER, " +
+                "$COLUMN_PHONE_NUMBER INTEGER)"
         db?.execSQL(createPersonTable)
 
     }
@@ -103,10 +72,20 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
         val dataSet : ArrayList<Clinic> = ArrayList<Clinic>()
 
         var cursor : Cursor? =
-                db?.query(NAME_TABLE_CLINIC, arrayOf(COLUMN_NUMBER_OF_CLINIC, COLUMN_IMAGE_CLINIC, COLUMN_NAME_CLINIC, COLUMN_ADDRESS_CLINIC), null, null, null, null, null)
+                db?.query(NAME_TABLE_CLINIC,
+                        arrayOf(COLUMN_NUMBER_OF_CLINIC,
+                                COLUMN_IMAGE_CLINIC,
+                                COLUMN_NAME_CLINIC,
+                                COLUMN_ADDRESS_CLINIC,
+                                COLUMN_CITY,
+                                COLUMN_VACCINE
+                        ), null, null, null, null, null)
 
         while (cursor!!.moveToNext()){
-                var clinic = Clinic(cursor.getInt(0),cursor.getInt(1), cursor.getString(2), cursor.getString(3))
+                var clinic = Clinic(cursor.getInt(0),cursor.getInt(1),
+                        cursor.getString(2), cursor.getString(3),
+                        cursor.getInt(4),cursor.getInt(5)
+                )
                 dataSet.add(clinic)
         }
         cursor.close()
@@ -118,10 +97,19 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
         val setPerson :ArrayList<Person> = ArrayList<Person>()
 
         var cursor : Cursor? =
-                db?.query(NAME_TABLE_PERSON, arrayOf( COLUMN_SSN, COLUMN_FIRST_NAME, COLUMN_LAST_NAME, COLUMN_AGE, COLUMN_ID_PERSON, COLUMN_GENDER, COLUMN_PHONE_NUMBER), null, null, null, null, null)
+                db?.query(NAME_TABLE_PERSON,
+                        arrayOf( COLUMN_SSN,
+                                COLUMN_FIRST_NAME,
+                                COLUMN_LAST_NAME,
+                                COLUMN_AGE,
+                                COLUMN_ID_PERSON,
+                                COLUMN_GENDER,
+                                COLUMN_PHONE_NUMBER), null, null, null, null, null)
 
         while (cursor!!.moveToNext()){
-            var person = Person(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getInt(3),cursor.getShort(4),cursor.getInt(5))
+            var person = Person(cursor.getInt(0),cursor.getString(1),
+                    cursor.getString(2),cursor.getInt(3),
+                    cursor.getShort(4),cursor.getInt(5))
             setPerson.add(person)
         }
         cursor.close()
@@ -129,13 +117,15 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
 
     }
 
-    fun insertClinicTable(db: SQLiteDatabase?,number : Int, image : Int, title: String, body : String){
+    fun insertClinicTable(db: SQLiteDatabase?,number : Int, image : Int, title: String, body : String, city : Int , vaccine : Int){
 
         val contentValues = ContentValues()
         contentValues.put(COLUMN_NUMBER_OF_CLINIC , number)
         contentValues.put(COLUMN_IMAGE_CLINIC, image)
         contentValues.put(COLUMN_NAME_CLINIC, title)
         contentValues.put(COLUMN_ADDRESS_CLINIC, body)
+        contentValues.put(COLUMN_CITY, city)
+        contentValues.put(COLUMN_VACCINE, vaccine)
         db?.insert(NAME_TABLE_CLINIC, null, contentValues)
 
     }
@@ -151,7 +141,32 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
         db?.insert(NAME_TABLE_PERSON, null, contentValues)
     }
 
-
-
+    fun data(db: SQLiteDatabase?) {
+        insertClinicTable(db, 0 , R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 1 , R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 2 , R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 3 , R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 4 , R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 5 , R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 6 , R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 7 , R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 8 , R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 10, R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 11, R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 12, R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 13, R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 14, R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 15, R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 16, R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 17, R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 18, R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 19, R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 20, R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 21, R.drawable.images,"name hospital","address",1,1)
+    }
 }
+
+
+
+
 
