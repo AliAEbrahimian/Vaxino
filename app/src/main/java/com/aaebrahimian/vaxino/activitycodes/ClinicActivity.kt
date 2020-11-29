@@ -11,6 +11,7 @@ class ClinicActivity : AppCompatActivity() {
 
     companion object{
         lateinit var dbopenHelper : DBOpenHelper
+        lateinit var insertclinictable : DBOpenHelper
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,8 +24,15 @@ class ClinicActivity : AppCompatActivity() {
     }
 
     private fun  viewDataSet (){
+
+        insertclinictable.insertClinicTable(1,"Mehregan","Mehregan")
+
         val list = dbopenHelper.getDataSetClinic(this)
         val adapter = PostsAdapter(this, list)
         clinic_RecyclerView.adapter = adapter
+
+        //val list = dbopenHelper.getDataSetClinic(this)
+        //val adapter = PostsAdapter(this, list)
+        //clinic_RecyclerView.adapter = adapter
     }
 }

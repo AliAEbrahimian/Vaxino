@@ -5,6 +5,7 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.aaebrahimian.vaxino.activitycodes.ClinicActivity
 import com.aaebrahimian.vaxino.model.Clinic
 import com.aaebrahimian.vaxino.model.Person
 
@@ -48,8 +49,9 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
         onCreate(db)
     }
 
-    fun getDataSetClinic (db: SQLiteDatabase?) : ArrayList<Clinic>{
-        val dataSet = ArrayList<Clinic>()
+    fun getDataSetClinic(db: SQLiteDatabase?): ArrayList<Clinic>{
+        val dataSet : ArrayList<Clinic> = ArrayList<Clinic>()
+        
         var cursor : Cursor? =
                 db?.query(NAME_TABLE_CLINIC, arrayOf( COLUMN_IMAGE_CLINIC, COLUMN_NAME_CLINIC, COLUMN_ADDRESS_CLINIC), null, null, null, null, null)
 
@@ -63,7 +65,8 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
     }
 
     fun getDataSetPerson (db: SQLiteDatabase?) : ArrayList<Person>{
-        val setPerson = ArrayList<Person>()
+        val setPerson :ArrayList<Person> = ArrayList<Person>()
+
         var cursor : Cursor? =
                 db?.query(NAME_TABLE_PERSON, arrayOf( COLUMN_SSN, COLUMN_FIRST_NAME, COLUMN_LAST_NAME, COLUMN_AGE, COLUMN_ID, COLUMN_GENDER, COLUMN_PHONE_NUMBER), null, null, null, null, null)
 
@@ -77,13 +80,16 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
     }
 
     fun insertClinicTable(db: SQLiteDatabase?, image : Int, title: String, body : String){
+
         val contentValues = ContentValues()
         contentValues.put(COLUMN_IMAGE_CLINIC, image)
         contentValues.put(COLUMN_NAME_CLINIC, title)
         contentValues.put(COLUMN_ADDRESS_CLINIC, body)
+
         db?.insert(NAME_TABLE_CLINIC, null, contentValues)
     }
     fun insertPersonTable(db: SQLiteDatabase?,personId: Int , firstname: String,  lastname: String,  age: Int,  gender: Boolean,  phone: Int){
+
         val contentValues = ContentValues()
         contentValues.put(COLUMN_SSN,personId)
         contentValues.put(COLUMN_FIRST_NAME,firstname)
@@ -93,6 +99,8 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
         contentValues.put(COLUMN_PHONE_NUMBER,phone)
         db?.insert(NAME_TABLE_PERSON, null, contentValues)
     }
+
+
 
 }
 
