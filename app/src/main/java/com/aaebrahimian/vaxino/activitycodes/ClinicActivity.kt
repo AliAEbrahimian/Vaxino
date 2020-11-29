@@ -25,7 +25,7 @@ class ClinicActivity : AppCompatActivity() {
 
     private fun  viewDataSet (){
 
-        insertclinictable.insertClinicTable(1,"Mehregan","Mehregan")
+        insertclinictable.insertClinicTable(1,1,"Mehregan","Sheybahaie")
 
         val list = dbopenHelper.getDataSetClinic(this)
         val adapter = PostsAdapter(this, list)

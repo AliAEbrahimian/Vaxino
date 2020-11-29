@@ -51,7 +51,7 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
 
     fun getDataSetClinic(db: SQLiteDatabase?): ArrayList<Clinic>{
         val dataSet : ArrayList<Clinic> = ArrayList<Clinic>()
-        
+
         var cursor : Cursor? =
                 db?.query(NAME_TABLE_CLINIC, arrayOf( COLUMN_IMAGE_CLINIC, COLUMN_NAME_CLINIC, COLUMN_ADDRESS_CLINIC), null, null, null, null, null)
 
