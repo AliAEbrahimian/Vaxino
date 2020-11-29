@@ -24,7 +24,7 @@
         android:textSize="40sp"
         android:textColor="#00008B"
         />
-    
+
     <TextView
         android:id="@+id/txt_Website"
         android:layout_width="match_parent"

@@ -5,6 +5,7 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.widget.Toast
 import com.aaebrahimian.vaxino.R
 import com.aaebrahimian.vaxino.model.Clinic
 import com.aaebrahimian.vaxino.model.Person
@@ -51,6 +52,7 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
                 "$COLUMN_VACCINE INTEGER)"
         db?.execSQL(createClinicTable)
         data(db)
+
         val createPersonTable = "CREATE TABLE IF NOT EXISTS $NAME_TABLE_PERSON " +
                 "($COLUMN_SSN INTEGER, " +
                 "$COLUMN_FIRST_NAME TEXT, " +
@@ -68,7 +70,7 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
         onCreate(db)
     }
 
-    fun getDataSetClinic(db: SQLiteDatabase?): ArrayList<Clinic>{
+    fun getDataSetClinic(context: Context?,db: SQLiteDatabase?): ArrayList<Clinic>{
         val dataSet : ArrayList<Clinic> = ArrayList<Clinic>()
 
         var cursor : Cursor? =
@@ -88,12 +90,13 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
                 )
                 dataSet.add(clinic)
         }
+        Toast.makeText(context,"${cursor.count} Record Found" ,Toast.LENGTH_LONG).show()
         cursor.close()
         return dataSet
 
     }
 
-    fun getDataSetPerson (db: SQLiteDatabase?) : ArrayList<Person>{
+    fun getDataSetPerson (context: Context?,db: SQLiteDatabase?) : ArrayList<Person>{
         val setPerson :ArrayList<Person> = ArrayList<Person>()
 
         var cursor : Cursor? =
@@ -112,6 +115,7 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
                     cursor.getShort(4),cursor.getInt(5))
             setPerson.add(person)
         }
+        Toast.makeText(context,"${cursor.count} Record Found" ,Toast.LENGTH_LONG).show()
         cursor.close()
         return setPerson
 
@@ -163,6 +167,15 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
         insertClinicTable(db, 19, R.drawable.images,"name hospital","address",1,1)
         insertClinicTable(db, 20, R.drawable.images,"name hospital","address",1,1)
         insertClinicTable(db, 21, R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 22, R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 23, R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 24, R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 25, R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 26, R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 27, R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 28, R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 29, R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 30, R.drawable.images,"name hospital","address",1,1)
     }
 }
 

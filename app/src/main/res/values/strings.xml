@@ -1,23 +1,15 @@
 <resources>
     <array name="City_array">
-        <item>...</item>
+        <item>Not selected</item>
         <item>Isfahan</item>
-        <item>Shahin Shar</item>
-        <item>Khomeini Shahr</item>
-        <item>Najaf Abad</item>
-        <item>Khorasgun</item>
-        <item>Sepahan Shahr</item>
-        <item>Falavarjan</item>
+        <item>Tehran</item>
+        <item>Mashhad</item>
+
     </array>
     <array name="Vaccine_array">
-        <item>...</item>
-        <item>BCG</item>
-        <item>DPT</item>
-        <item>DT And Td</item>
-        <item>OPV And IPV</item>
-        <item>MMR</item>
-        <item>TT</item>
-        <item>Hep.B</item>
+        <item>Not selected</item>
+        <item>COVID-19</item>
+        <item>INFLUENZA</item>
     </array>
     <string name="app_name">Vaxino</string>
     <string name="logo_vaxino">Logo Vaxino</string>
