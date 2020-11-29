@@ -1,5 +1,6 @@
 package com.aaebrahimian.vaxino.activitycodes
 
+import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.aaebrahimian.vaxino.R
@@ -10,29 +11,34 @@ import kotlinx.android.synthetic.main.activity_clinic.*
 class ClinicActivity : AppCompatActivity() {
 
     companion object{
-        lateinit var dbopenHelper : DBOpenHelper
+        lateinit var dbOpenHelper : DBOpenHelper
         lateinit var insertclinictable : DBOpenHelper
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_clinic)
+        dbOpenHelper = DBOpenHelper(this)
 
-        dbopenHelper = DBOpenHelper(this)
-        viewDataSet()
+        val list = dbOpenHelper.getDataSetClinic(dbOpenHelper.readableDatabase)
+        val adapter = PostsAdapter(this,list)
+        clinic_RecyclerView.adapter = adapter
+        dbOpenHelper.close()
+
+        //viewDataSet()
 
     }
 
     private fun  viewDataSet (){
 
-        insertclinictable.insertClinicTable(1,1,"Mehregan","Sheybahaie")
+        /*insertclinictable.insertClinicTable(,)
 
-        val list = dbopenHelper.getDataSetClinic(this)
-        val adapter = PostsAdapter(this, list)
+        dbOpenHelper = DBOpenHelper(this)
+        val list = Companion.dbopenHelper.getDataSetClinic(dbopenHelper)
         clinic_RecyclerView.adapter = adapter
 
         //val list = dbopenHelper.getDataSetClinic(this)
         //val adapter = PostsAdapter(this, list)
-        //clinic_RecyclerView.adapter = adapter
+        //clinic_RecyclerView.adapter = adapter*/
     }
 }

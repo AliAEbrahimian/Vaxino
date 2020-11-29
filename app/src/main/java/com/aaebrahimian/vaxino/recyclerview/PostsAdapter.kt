@@ -1,6 +1,7 @@
 package com.aaebrahimian.vaxino.recyclerview
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,10 +45,11 @@ class PostsAdapter(context: Context, private val dataSet: ArrayList<Clinic>) :
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        val model : Clinic = dataSet[position]
+        val clinic : Clinic = dataSet[position]
 
-        viewHolder.textTitle.text = model.title
-        viewHolder.textBody.text = model.body
+        viewHolder.imgItem.setImageResource(R.mipmap.images)
+        viewHolder.textTitle.text = clinic.title
+        viewHolder.textBody.text = clinic.body
 
     }
 

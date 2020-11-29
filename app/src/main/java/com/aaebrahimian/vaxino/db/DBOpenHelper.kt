@@ -35,13 +35,21 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
 
 
 
-    override fun onCreate(db: SQLiteDatabase?) {
+    override fun onCreate (db: SQLiteDatabase?) {
 
-        val createClinicTable = "CREATE TABLE $NAME_TABLE_CLINIC($COLUMN_NUMBER_OF_CLINIC INTEGER  PRIMARY KEY AUTOINCREMENT NOT NULL, $COLUMN_NAME_CLINIC TEXT , $COLUMN_ADDRESS_CLINIC TEXT , $COLUMN_IMAGE_CLINIC IMAGE)"
+        val createClinicTable = "CREATE TABLE IF NOT EXISTS $NAME_TABLE_CLINIC($COLUMN_NUMBER_OF_CLINIC INTEGER  PRIMARY KEY AUTOINCREMENT NOT NULL, $COLUMN_NAME_CLINIC TEXT , $COLUMN_ADDRESS_CLINIC TEXT , $COLUMN_IMAGE_CLINIC IMAGE)"
         db?.execSQL(createClinicTable)
 
-        val createPersonTable = "CREATE TABLE $NAME_TABLE_PERSON ($COLUMN_SSN INTEGER,$COLUMN_FIRST_NAME TEXT,$COLUMN_LAST_NAME TEXT,$COLUMN_AGE DATE,$COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, $COLUMN_GENDER INTEGER,$COLUMN_PHONE_NUMBER INTEGER)"
+        insertClinicTable(db,1,"Mehregan","Sheybahaie")
+        insertClinicTable(db,1,"Mehregan","Sheybahaie")
+        insertClinicTable(db,1,"Mehregan","Sheybahaie")
+        insertClinicTable(db,1,"Mehregan","Sheybahaie")
+        insertClinicTable(db,1,"Mehregan","Sheybahaie")
+        insertClinicTable(db,1,"Mehregan","Sheybahaie")
+
+        val createPersonTable = "CREATE TABLE IF NOT EXISTS $NAME_TABLE_PERSON ($COLUMN_SSN INTEGER,$COLUMN_FIRST_NAME TEXT,$COLUMN_LAST_NAME TEXT,$COLUMN_AGE DATE,$COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, $COLUMN_GENDER INTEGER,$COLUMN_PHONE_NUMBER INTEGER)"
         db?.execSQL(createPersonTable)
+
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
