@@ -23,7 +23,7 @@
         </activity>
 
         <activity android:name=".activitycodes.ClinicActivity" />
-        <activity android:name=".activitycodes.CityAndVaccine" />
+        <activity android:name=".activitycodes.SelectActivity" />
         <activity android:name=".activitycodes.InformationClinicActivity" />
         <activity android:name=".activitycodes.ConfirmedActivity" />
         <activity android:name=".activitycodes.MainActivity" />

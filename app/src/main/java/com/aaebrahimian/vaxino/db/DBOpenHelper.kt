@@ -7,18 +7,20 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
 import com.aaebrahimian.vaxino.R
-import com.aaebrahimian.vaxino.activitycodes.CityAndVaccine
+import com.aaebrahimian.vaxino.activitycodes.ClinicActivity
 import com.aaebrahimian.vaxino.model.Clinic
 import com.aaebrahimian.vaxino.model.Person
 
 
 class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null , 1 ) {
 
-    var cityPosition = CityAndVaccine()
-    var vaccinePosition = CityAndVaccine()
 
 
     companion object{
+
+        val cityPo = ClinicActivity()
+        val vaccinePo = ClinicActivity()
+
 
         const val DATABASE_VERSION = 1
         const val DATABASE_NAME = "Vaxino.db"
@@ -95,7 +97,8 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
                 )
                 dataSet.add(clinic)
         }
-        Toast.makeText(context,"$cityPosition" ,Toast.LENGTH_LONG).show()
+        //Toast.makeText(context,"$cityPo" ,Toast.LENGTH_LONG).show()
+        //Toast.makeText(context,"$vaccinePo" ,Toast.LENGTH_LONG).show()
         Toast.makeText(context,"${cursor.count} Record Found" ,Toast.LENGTH_LONG).show()
         cursor.close()
         return dataSet
@@ -149,6 +152,11 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
         contentValues.put(COLUMN_GENDER,gender)
         contentValues.put(COLUMN_PHONE_NUMBER,phone)
         db?.insert(NAME_TABLE_PERSON, null, contentValues)
+    }
+
+    fun selectFromClinicTable(){
+        
+
     }
 
     fun data(db: SQLiteDatabase?) {

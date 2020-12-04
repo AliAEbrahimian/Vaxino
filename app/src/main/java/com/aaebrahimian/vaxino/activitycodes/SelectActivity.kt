@@ -8,10 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import com.aaebrahimian.vaxino.R
 import com.aaebrahimian.vaxino.resources.Statics
-import kotlinx.android.synthetic.main.activity_cityandvaccine.*
+import kotlinx.android.synthetic.main.activity_select.*
 
 
-class CityAndVaccine : AppCompatActivity() {
+class SelectActivity : AppCompatActivity() {
 
     val statics:Statics = Statics()
     var vaccine = ""
@@ -21,7 +21,7 @@ class CityAndVaccine : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_cityandvaccine)
+        setContentView(R.layout.activity_select)
 
 
         txt_City.alpha = 0f
@@ -45,12 +45,12 @@ class CityAndVaccine : AppCompatActivity() {
             ) {
                 statics.cityList.get(position).also { cityPosition = position }
                 city = statics.cityList[cityPosition]
-                Toast.makeText(this@CityAndVaccine, "You select ${statics.cityList[position]}", Toast.LENGTH_SHORT).show()
-                Toast.makeText(this@CityAndVaccine,"position" + cityPosition ,Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this@SelectActivity, "You select ${statics.cityList[position]}", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this@CityAndVaccine,"position" + cityPosition ,Toast.LENGTH_SHORT).show()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                Toast.makeText( this@CityAndVaccine, "You not select item" , Toast.LENGTH_SHORT).show()
+                Toast.makeText( this@SelectActivity, "You not select item" , Toast.LENGTH_SHORT).show()
 
             }
 
@@ -78,8 +78,8 @@ class CityAndVaccine : AppCompatActivity() {
             ) {
                 statics.vaccineList.get(position).also { vaccinePosition = position }
                 vaccine = statics.vaccineList[vaccinePosition]
-                Toast.makeText(this@CityAndVaccine, "You select ${statics.vaccineList[position]}", Toast.LENGTH_SHORT).show()
-                Toast.makeText(this@CityAndVaccine,"position" + vaccinePosition ,Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this@SelectActivity, "You select ${statics.vaccineList[position]}", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this@CityAndVaccine,"position" + vaccinePosition ,Toast.LENGTH_SHORT).show()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -87,12 +87,20 @@ class CityAndVaccine : AppCompatActivity() {
         }
 
         btn_Selection.setOnClickListener {
-            if( this.cityPosition === 0 || this.vaccinePosition === 0) {
-                Toast.makeText( this@CityAndVaccine, "You not select item" , Toast.LENGTH_SHORT).show()
+            if( this.cityPosition === 0 && this.vaccinePosition === 0) {
+                Toast.makeText( this@SelectActivity, "You not select city and vaccine" , Toast.LENGTH_SHORT).show()
+            }
+            else if(cityPosition === 0){
+                Toast.makeText( this@SelectActivity, "You not select city" , Toast.LENGTH_SHORT).show()
+            }
+            else if(vaccinePosition === 0){
+                Toast.makeText( this@SelectActivity, "You not select vaccine" , Toast.LENGTH_SHORT).show()
             }
             else{
-                Toast.makeText( this@CityAndVaccine, "You select items, ${city} * ${vaccine}" , Toast.LENGTH_SHORT).show()
+                Toast.makeText( this@SelectActivity, "You select items, ${city} * ${vaccine}" , Toast.LENGTH_SHORT).show()
                 val intent = Intent (this, ClinicActivity::class.java)
+                intent.putExtra("key_1",cityPosition)
+                intent.putExtra("key_2",vaccinePosition)
                 startActivity(intent)
             }
 
