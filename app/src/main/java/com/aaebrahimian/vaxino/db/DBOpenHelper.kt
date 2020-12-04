@@ -88,7 +88,7 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
                                 COLUMN_NAME_CLINIC,
                                 COLUMN_ADDRESS_CLINIC,
                                 COLUMN_CITY,
-                                COLUMN_VACCINE), null, null, null, null, null)
+                                COLUMN_VACCINE),"WHERE $COLUMN_CITY IS 1 AND $COLUMN_VACCINE IS 1",null, null, null, null)
 
         while (cursor!!.moveToNext()){
                 var clinic = Clinic(cursor.getInt(0),cursor.getInt(1),
@@ -154,14 +154,10 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
         db?.insert(NAME_TABLE_PERSON, null, contentValues)
     }
 
-    fun selectFromClinicTable(){
-        
-
-    }
 
     fun data(db: SQLiteDatabase?) {
         insertClinicTable(db, 0 , R.drawable.images,"name hospital","address",1,1)
-        insertClinicTable(db, 1 , R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 1 , R.drawable.images,"name hospital","address",2,1)
         insertClinicTable(db, 2 , R.drawable.images,"name hospital","address",1,1)
         insertClinicTable(db, 3 , R.drawable.images,"name hospital","address",1,1)
         insertClinicTable(db, 4 , R.drawable.images,"name hospital","address",1,1)
