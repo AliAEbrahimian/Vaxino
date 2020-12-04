@@ -55,10 +55,10 @@ class DBOpenHelper(context : Context?, var city: Int , var vaccine: Int) : SQLit
         data(db)
 
         val createPersonTable = "CREATE TABLE IF NOT EXISTS $NAME_TABLE_PERSON " +
-                "($COLUMN_SSN INTEGER, " +
+                "($COLUMN_SSN STRING, " +
                 "$COLUMN_FIRST_NAME TEXT, " +
                 "$COLUMN_LAST_NAME TEXT, " +
-                "$COLUMN_AGE DATE, " +
+                "$COLUMN_AGE INTEGER, " +
                 "$COLUMN_ID_PERSON INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
                 "$COLUMN_GENDER INTEGER, " +
                 "$COLUMN_PHONE_NUMBER INTEGER)"
@@ -115,7 +115,7 @@ class DBOpenHelper(context : Context?, var city: Int , var vaccine: Int) : SQLit
                                 COLUMN_PHONE_NUMBER), null, null, null, null, null)
 
         while (cursor!!.moveToNext()){
-            var person = Person(cursor.getInt(0),cursor.getString(1),
+            var person = Person(cursor.getString(0),cursor.getString(1),
                     cursor.getString(2),cursor.getInt(3),
                     cursor.getShort(4),cursor.getInt(5))
             setPerson.add(person)
@@ -138,7 +138,7 @@ class DBOpenHelper(context : Context?, var city: Int , var vaccine: Int) : SQLit
         db?.insert(NAME_TABLE_CLINIC, null, contentValues)
 
     }
-    fun insertPersonTable(db: SQLiteDatabase?,personId: Int , firstname: String,  lastname: String,  age: Int,  gender: Boolean,  phone: Int){
+    fun insertPersonTable(db: SQLiteDatabase?,personId: String , firstname: String,  lastname: String,  age: Int,  gender: Boolean,  phone: Int){
 
         val contentValues = ContentValues()
         contentValues.put(COLUMN_SSN,personId)

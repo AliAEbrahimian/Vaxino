@@ -1,5 +1,6 @@
 package com.aaebrahimian.vaxino.activitycodes
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
@@ -28,7 +29,8 @@ class InformationClinicActivity : AppCompatActivity() {
         }
 
         btn_Selection.setOnClickListener {
-
+            val intent = Intent (this, RegisterActivity::class.java)
+            startActivity(intent)
         }
 
 

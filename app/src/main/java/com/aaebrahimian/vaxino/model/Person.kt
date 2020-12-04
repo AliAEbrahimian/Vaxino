@@ -3,9 +3,9 @@ package com.aaebrahimian.vaxino.model
 import android.os.Parcel
 import android.os.Parcelable
 
-class Person(var personId: Int, var firstname: String?, var lastname: String?, var age: Int, var gender: Short, var phone: Int): Parcelable {
+class Person(var personId: String?, var firstname: String?, var lastname: String?, var age: Int, var gender: Short, var phone: Int): Parcelable {
     constructor(parcel: Parcel) : this(
-            parcel.readInt(),
+            parcel.readString(),
             parcel.readString(),
             parcel.readString(),
             parcel.readInt(),
@@ -14,7 +14,7 @@ class Person(var personId: Int, var firstname: String?, var lastname: String?, v
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeInt(personId)
+        parcel.writeString(personId)
         parcel.writeString(firstname)
         parcel.writeString(lastname)
         parcel.writeInt(age)
