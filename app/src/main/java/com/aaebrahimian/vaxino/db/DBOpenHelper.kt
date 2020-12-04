@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
 import com.aaebrahimian.vaxino.R
-import com.aaebrahimian.vaxino.activitycodes.ClinicActivity
 import com.aaebrahimian.vaxino.model.Clinic
 import com.aaebrahimian.vaxino.model.Person
 
@@ -18,8 +17,8 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
 
     companion object{
 
-        val cityPo = ClinicActivity()
-        val vaccinePo = ClinicActivity()
+        //val cityPo = ClinicActivity().intent.getIntExtra("key_1",0)
+        //val vaccinePo = ClinicActivity().intent.getIntExtra("key_2",0)
 
 
         const val DATABASE_VERSION = 1
@@ -88,7 +87,7 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
                                 COLUMN_NAME_CLINIC,
                                 COLUMN_ADDRESS_CLINIC,
                                 COLUMN_CITY,
-                                COLUMN_VACCINE),"WHERE $COLUMN_CITY IS 1 AND $COLUMN_VACCINE IS 1",null, null, null, null)
+                                COLUMN_VACCINE),"WHERE $COLUMN_CITY = '1' AND $COLUMN_VACCINE = '1'",null, null, null, null)
 
         while (cursor!!.moveToNext()){
                 var clinic = Clinic(cursor.getInt(0),cursor.getInt(1),
@@ -97,6 +96,9 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
                 )
                 dataSet.add(clinic)
         }
+
+
+
         //Toast.makeText(context,"$cityPo" ,Toast.LENGTH_LONG).show()
         //Toast.makeText(context,"$vaccinePo" ,Toast.LENGTH_LONG).show()
         Toast.makeText(context,"${cursor.count} Record Found" ,Toast.LENGTH_LONG).show()
