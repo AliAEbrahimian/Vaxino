@@ -11,15 +11,9 @@ import com.aaebrahimian.vaxino.model.Clinic
 import com.aaebrahimian.vaxino.model.Person
 
 
-class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null , 1 ) {
-
-
+class DBOpenHelper(context : Context?, var city: Int , var vaccine: Int) : SQLiteOpenHelper( context , null ,null , 1 ) {
 
     companion object{
-
-        //val cityPo = ClinicActivity().intent.getIntExtra("key_1",0)
-        //val vaccinePo = ClinicActivity().intent.getIntExtra("key_2",0)
-
 
         const val DATABASE_VERSION = 1
         const val DATABASE_NAME = "Vaxino.db"
@@ -87,7 +81,7 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
                                 COLUMN_NAME_CLINIC,
                                 COLUMN_ADDRESS_CLINIC,
                                 COLUMN_CITY,
-                                COLUMN_VACCINE),"WHERE $COLUMN_CITY = '1' AND $COLUMN_VACCINE = '1'",null, null, null, null)
+                                COLUMN_VACCINE),"$COLUMN_CITY = '$city' AND $COLUMN_VACCINE = '$vaccine'",null, null, null, null)
 
         while (cursor!!.moveToNext()){
                 var clinic = Clinic(cursor.getInt(0),cursor.getInt(1),
@@ -160,12 +154,12 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
     fun data(db: SQLiteDatabase?) {
         insertClinicTable(db, 0 , R.drawable.images,"name hospital","address",1,1)
         insertClinicTable(db, 1 , R.drawable.images,"name hospital","address",2,1)
-        insertClinicTable(db, 2 , R.drawable.images,"name hospital","address",1,1)
-        insertClinicTable(db, 3 , R.drawable.images,"name hospital","address",1,1)
-        insertClinicTable(db, 4 , R.drawable.images,"name hospital","address",1,1)
-        insertClinicTable(db, 5 , R.drawable.images,"name hospital","address",1,1)
-        insertClinicTable(db, 6 , R.drawable.images,"name hospital","address",1,1)
-        insertClinicTable(db, 7 , R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 2 , R.drawable.images,"name hospital","address",2,2)
+        insertClinicTable(db, 3 , R.drawable.images,"name hospital","address",3,2)
+        insertClinicTable(db, 4 , R.drawable.images,"name hospital","address",3,1)
+        insertClinicTable(db, 5 , R.drawable.images,"name hospital","address",3,1)
+        insertClinicTable(db, 6 , R.drawable.images,"name hospital","address",3,1)
+        insertClinicTable(db, 7 , R.drawable.images,"name hospital","address",2,1)
         insertClinicTable(db, 8 , R.drawable.images,"name hospital","address",1,1)
         insertClinicTable(db, 10, R.drawable.images,"name hospital","address",1,1)
         insertClinicTable(db, 11, R.drawable.images,"name hospital","address",1,1)
