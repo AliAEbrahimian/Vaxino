@@ -7,13 +7,19 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
 import com.aaebrahimian.vaxino.R
+import com.aaebrahimian.vaxino.activitycodes.CityAndVaccine
 import com.aaebrahimian.vaxino.model.Clinic
 import com.aaebrahimian.vaxino.model.Person
 
 
 class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null , 1 ) {
 
+    var cityPosition = CityAndVaccine()
+    var vaccinePosition = CityAndVaccine()
+
+
     companion object{
+
         const val DATABASE_VERSION = 1
         const val DATABASE_NAME = "Vaxino.db"
 
@@ -80,8 +86,7 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
                                 COLUMN_NAME_CLINIC,
                                 COLUMN_ADDRESS_CLINIC,
                                 COLUMN_CITY,
-                                COLUMN_VACCINE
-                        ), null, null, null, null, null)
+                                COLUMN_VACCINE), null, null, null, null, null)
 
         while (cursor!!.moveToNext()){
                 var clinic = Clinic(cursor.getInt(0),cursor.getInt(1),
@@ -90,6 +95,7 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
                 )
                 dataSet.add(clinic)
         }
+        Toast.makeText(context,"$cityPosition" ,Toast.LENGTH_LONG).show()
         Toast.makeText(context,"${cursor.count} Record Found" ,Toast.LENGTH_LONG).show()
         cursor.close()
         return dataSet

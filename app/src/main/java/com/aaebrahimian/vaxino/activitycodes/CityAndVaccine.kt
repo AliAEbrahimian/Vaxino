@@ -43,10 +43,10 @@ class CityAndVaccine : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
-                statics.CityList.get(position).also { cityPosition = position }
-                city = statics.CityList[cityPosition]
-                //Toast.makeText(this@CityAndVaccine, "You select ${statics.CityList[position]}", Toast.LENGTH_SHORT).show()
-                //Toast.makeText(this@CityAndVaccine,"position" + cityposition ,Toast.LENGTH_SHORT).show()
+                statics.cityList.get(position).also { cityPosition = position }
+                city = statics.cityList[cityPosition]
+                Toast.makeText(this@CityAndVaccine, "You select ${statics.cityList[position]}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@CityAndVaccine,"position" + cityPosition ,Toast.LENGTH_SHORT).show()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -76,10 +76,10 @@ class CityAndVaccine : AppCompatActivity() {
                     position: Int,
                     id: Long
             ) {
-                statics.VaccineList.get(position).also { vaccinePosition = position }
-                vaccine = statics.VaccineList[vaccinePosition]
-                //Toast.makeText(this@CityAndVaccine, "You select ${statics.VaccineList[position]}", Toast.LENGTH_SHORT).show()
-                //Toast.makeText(this@CityAndVaccine,"position" + vaccineposition ,Toast.LENGTH_SHORT).show()
+                statics.vaccineList.get(position).also { vaccinePosition = position }
+                vaccine = statics.vaccineList[vaccinePosition]
+                Toast.makeText(this@CityAndVaccine, "You select ${statics.vaccineList[position]}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@CityAndVaccine,"position" + vaccinePosition ,Toast.LENGTH_SHORT).show()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
