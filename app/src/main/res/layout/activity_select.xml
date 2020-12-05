@@ -32,8 +32,8 @@
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_margin="10dp"
-        android:background="@drawable/design_spinner"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:background="@drawable/design_spinner"/>
 
 
     <androidx.core.widget.NestedScrollView
