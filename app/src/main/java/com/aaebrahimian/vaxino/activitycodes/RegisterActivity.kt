@@ -16,5 +16,14 @@ class RegisterActivity : AppCompatActivity() {
         txt_Register.typeface = ResourcesCompat.getFont(this, R.font.frission)
         txt_Register.text = "a"
 
+        btn_Save.typeface = ResourcesCompat.getFont(this, R.font.frission)
+        btn_Save.setOnClickListener {
+
+        }
+        btn_Cancel.typeface = ResourcesCompat.getFont(this, R.font.frission)
+        btn_Cancel.setOnClickListener {
+
+        }
+
     }
 }

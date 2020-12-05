@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,15 +11,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:background="@drawable/design_text_view"
-            android:fillViewport="true"
-            >
+            android:fillViewport="true">
 
                 <TextView
                     android:id="@+id/txt_Register"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:includeFontPadding="true"
                     android:textAlignment="center"
@@ -28,79 +28,100 @@
         </androidx.core.widget.NestedScrollView>
 
         <EditText
-            android:id="@+id/editTextTextPersonName5"
+            android:id="@+id/edtxt_First_Name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:layout_weight="2"
+            android:background="@drawable/design_edit_text"
+            android:drawableStart="@drawable/custom_person_icon"
+            android:drawablePadding="12dp"
             android:ems="10"
+            android:hint="First name"
             android:inputType="textPersonName"
-            android:text="First name"
-            android:drawableStart="@drawable/ic_baseline_person_24"
-            android:layout_margin="10dp"/>
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName6"
+            android:id="@+id/edtxt_Last_Name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:layout_weight="2"
+            android:background="@drawable/design_edit_text"
+            android:drawableStart="@drawable/custom_person_icon"
+            android:drawablePadding="12dp"
             android:ems="10"
+            android:hint="Last Name"
             android:inputType="textPersonName"
-            android:text="Last naem"
-            android:drawableStart="@drawable/ic_baseline_person_24"
-            android:layout_margin="10dp"/>
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName7"
+            android:id="@+id/edtxt_National_Code"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:layout_weight="2"
+            android:background="@drawable/design_edit_text"
+            android:drawablePadding="12dp"
             android:ems="10"
+            android:hint="(National Code) Example: 1234567890"
             android:inputType="textPersonName"
-            android:text="National Code"
-            android:layout_margin="10dp"/>
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName9"
+            android:id="@+id/edtxt_Age"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:layout_weight="2"
+            android:background="@drawable/design_edit_text"
+            android:drawablePadding="12dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Age"
-            android:layout_margin="10dp"/>
+            android:hint="(Age) Example: 18"
+            android:inputType="number"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
 
         <RadioGroup
             android:id="@+id/radio_Gender"
-            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10dp">
+            android:layout_margin="10dp"
+            android:layout_weight="2">
 
                 <RadioButton
-                    android:id="@+id/radioMale"
+                    android:id="@+id/radio_Male"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/radio_male"
-                    android:checked="true" />
+                    android:background="@drawable/design_edit_text"
+                    android:checked="true"
+                    android:text="@string/radio_male" />
 
                 <RadioButton
-                    android:id="@+id/radioFemale"
+                    android:id="@+id/radio_Female"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/design_edit_text"
                     android:text="@string/radio_female" />
-
         </RadioGroup>
 
         <EditText
-            android:id="@+id/editTextNumber"
+            android:id="@+id/ednum_Phone_Number"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:layout_weight="2"
+            android:background="@drawable/design_edit_text"
+            android:drawableStart="@drawable/custom_phone_icon"
+            android:drawablePadding="12dp"
             android:ems="10"
             android:inputType="number"
-            tools:text="Phone number"
-            android:drawableStart="@drawable/ic_baseline_phone_24"
-            android:layout_margin="10dp"/>
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:hint="(Phone) Example: 9*********" />
 
         <Button
             android:id="@+id/btn_Save"
@@ -110,13 +131,13 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="30dp"
             android:layout_marginBottom="10dp"
-            android:layout_weight="1"
+            android:layout_weight="2.08"
             android:background="@drawable/design_button_1"
             android:text="@string/start_save"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
-            android:textSize="24sp"
-            />
+            android:textSize="24sp" />
+
         <Button
             android:id="@+id/btn_Cancel"
             android:layout_width="match_parent"
@@ -125,7 +146,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="30dp"
             android:layout_marginBottom="10dp"
-            android:layout_weight="1"
+            android:layout_weight="2.08"
             android:background="@drawable/design_button_1"
             android:text="@string/cancel"
             android:textAllCaps="false"
