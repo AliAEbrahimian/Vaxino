@@ -2,32 +2,26 @@ package com.aaebrahimian.vaxino.activitycodes
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
 import com.aaebrahimian.vaxino.R
+import kotlinx.android.synthetic.main.activity_information_clinic.*
 
 class InformationClinicActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_information_clinic)
 
-        var img_Clinic = findViewById<ImageView>(R.id.img_Clinic)
-        var txt_Information = findViewById<TextView>(R.id.txt_Information_Clinic)
-        val btn_Call = findViewById<Button>(R.id.btn_Call)
-        val btn_Back = findViewById<Button>(R.id.btn_Back)
-        val btn_Selection = findViewById<Button>(R.id.btn_Selection)
+        txt_Information_Clinic.alpha = 0f
+        txt_Information_Clinic.animate().setDuration(1500).alpha(1f)
+        txt_Information_Clinic.typeface = ResourcesCompat.getFont(this, R.font.frission)
+        txt_Information_Clinic.text = "0000"
 
-
+        btn_Call.typeface = ResourcesCompat.getFont(this, R.font.frission)
         btn_Call.setOnClickListener {
-
         }
 
-        btn_Back.setOnClickListener {
-
-        }
-
+        btn_Selection.typeface = ResourcesCompat.getFont(this, R.font.frission)
         btn_Selection.setOnClickListener {
             val intent = Intent (this, RegisterActivity::class.java)
             startActivity(intent)

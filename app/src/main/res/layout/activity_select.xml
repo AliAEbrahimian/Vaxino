@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/a"
+    android:background="@drawable/layout_background"
     android:orientation="vertical"
     tools:context=".activitycodes.SelectActivity">
 
@@ -61,6 +61,7 @@
         android:layout_margin="10dp"
         android:textAlignment="center"
         android:background="@drawable/design_spinner"
+        
         />
 
     <Button

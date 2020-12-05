@@ -85,7 +85,7 @@ class SelectActivity : AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
         }
-
+        btn_Selection.typeface = ResourcesCompat.getFont(this, R.font.frission)
         btn_Selection.setOnClickListener {
             if( this.cityPosition === 0 && this.vaccinePosition === 0) {
                 Toast.makeText( this@SelectActivity, "You not select city and vaccine" , Toast.LENGTH_SHORT).show()
