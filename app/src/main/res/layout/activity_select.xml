@@ -24,7 +24,8 @@
             android:layout_margin="20dp"
             android:textAlignment="viewStart"
             android:textColor="#000000"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:textStyle="bold"/>
     </androidx.core.widget.NestedScrollView>
 
     <Spinner
@@ -61,7 +62,7 @@
         android:layout_margin="10dp"
         android:textAlignment="center"
         android:background="@drawable/design_spinner"
-        
+
         />
 
     <Button
