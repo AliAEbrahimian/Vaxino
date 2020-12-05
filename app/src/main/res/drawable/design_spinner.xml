@@ -32,10 +32,7 @@
 
     </item>
 
-    <item
-        android:gravity="end|fill_vertical"
-        android:width="55dp"
-        android:drawable="@android:drawable/control_background_40dp_material" />
+
     <item
         android:drawable="@drawable/ic_baseline_arrow_drop_down_24"
         android:gravity="end|center_vertical"
