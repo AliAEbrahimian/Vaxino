@@ -25,4 +25,6 @@
     <string name="shiraz">Shiraz</string>
     <string name="www_vaxino_ir">www.vaxino.ir</string>
     <string name="todo">TODO</string>
+    <string name="cancel">Cancel</string>
+    <string name="start_save">Save</string>
 </resources>

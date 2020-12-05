@@ -32,17 +32,17 @@
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_margin="10dp"
-        android:textAlignment="center"
-        />
+        android:background="@drawable/design_spinner"
+        android:textAlignment="center" />
 
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:fillViewport="true"
         android:layout_margin="10dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/design_text_view">
+        android:background="@drawable/design_text_view"
+        android:fillViewport="true">
 
         <TextView
             android:id="@+id/txt_Vaccine"
@@ -60,6 +60,7 @@
         android:layout_height="55dp"
         android:layout_margin="10dp"
         android:textAlignment="center"
+        android:background="@drawable/design_spinner"
         />
 
     <Button
