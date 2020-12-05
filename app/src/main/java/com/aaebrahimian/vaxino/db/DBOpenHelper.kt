@@ -71,7 +71,7 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
         onCreate(db)
     }
 
-    fun getDataSetClinic(context: Context?, db: SQLiteDatabase?, city : Int, vaccine : Int ): ArrayList<Clinic>{
+    fun getDataSetClinic(context: Context?, db: SQLiteDatabase?, city: Int, vaccine: Int): ArrayList<Clinic>{
         val dataSet : ArrayList<Clinic> = ArrayList<Clinic>()
 
         var cursor : Cursor? =
