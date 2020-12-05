@@ -20,7 +20,7 @@ class RegisterActivity : AppCompatActivity() {
         txt_Register.typeface = ResourcesCompat.getFont(this, R.font.frission)
         txt_Register.text = "a"
 
-        var dbOpenHelper = DBOpenHelper(this,0,0)
+        var dbOpenHelper = DBOpenHelper(this)
 
         btn_Save.typeface = ResourcesCompat.getFont(this, R.font.frission)
         btn_Save.setOnClickListener {

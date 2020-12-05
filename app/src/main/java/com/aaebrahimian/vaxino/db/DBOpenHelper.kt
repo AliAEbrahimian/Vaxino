@@ -11,7 +11,7 @@ import com.aaebrahimian.vaxino.model.Clinic
 import com.aaebrahimian.vaxino.model.Person
 
 
-class DBOpenHelper(context : Context?, var city: Int , var vaccine: Int) : SQLiteOpenHelper( context , null ,null , 1 ) {
+class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null , 1 ) {
 
     companion object{
 
@@ -71,7 +71,7 @@ class DBOpenHelper(context : Context?, var city: Int , var vaccine: Int) : SQLit
         onCreate(db)
     }
 
-    fun getDataSetClinic(context: Context?,db: SQLiteDatabase?): ArrayList<Clinic>{
+    fun getDataSetClinic(context: Context?, db: SQLiteDatabase?, city : Int, vaccine : Int ): ArrayList<Clinic>{
         val dataSet : ArrayList<Clinic> = ArrayList<Clinic>()
 
         var cursor : Cursor? =

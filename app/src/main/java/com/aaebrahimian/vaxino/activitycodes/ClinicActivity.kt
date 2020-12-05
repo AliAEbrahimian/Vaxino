@@ -21,14 +21,14 @@ class ClinicActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_clinic)
 
-        var cityPo:Int = intent.getIntExtra(cityPosition,0)
-        var vaccinePo:Int = intent.getIntExtra(vaccinePosition,0)
+        var cityPo: Int = intent.getIntExtra(cityPosition,0)
+        var vaccinePo: Int = intent.getIntExtra(vaccinePosition,0)
 
-        var dbOpenHelper = DBOpenHelper(this,cityPo,vaccinePo)
+        var dbOpenHelper = DBOpenHelper(this)
         //Toast.makeText(this,"Number of city is $cityPo" , Toast.LENGTH_LONG).show()
         //Toast.makeText(this,"Number of vaccine is $vaccinePo" , Toast.LENGTH_LONG).show()
 
-        val list = dbOpenHelper.getDataSetClinic(this,dbOpenHelper.readableDatabase)
+        val list = dbOpenHelper.getDataSetClinic(this, dbOpenHelper.readableDatabase, cityPo, vaccinePo)
         val adapter = RecViewArrayAdapted(this,list)
         clinic_RecyclerView.adapter = adapter
         clinic_RecyclerView.layoutManager = LinearLayoutManager(this)
