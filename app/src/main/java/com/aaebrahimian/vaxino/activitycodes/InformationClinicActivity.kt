@@ -17,18 +17,17 @@ class InformationClinicActivity : AppCompatActivity() {
         var detailsClinic = intent.getParcelableExtra<Clinic>("key_1")
 
         var dbOpenHelper = DBOpenHelper(this)
-
         var list = dbOpenHelper.getClinicInformation(this, dbOpenHelper.readableDatabase,"Mehregan Hospital")
 
         txt_Information_Clinic.alpha = 0f
         txt_Information_Clinic.animate().setDuration(1500).alpha(1f)
         txt_Information_Clinic.typeface = ResourcesCompat.getFont(this, R.font.frission)
 
-        txt_Information_Clinic.text = "Hospital Name: (x)\n" +
-                "Has a vaccine (x) for a limited number.\n" +
-                "Hospital address: (x) city, street (x)\n" +
-                "Contact number: (x)\n"
-
+        /*txt_Information_Clinic.text =  "Hospital Name: ${list[2]}\n" +
+                "Has a vaccine ${list[5]} for a limited number.\n" +
+                "Hospital address: ${list[4]} city, street ${list[3]}\n" +
+                "Contact number: ${list[0]}\n"
+*/
 
         btn_Call.typeface = ResourcesCompat.getFont(this, R.font.frission)
         btn_Call.setOnClickListener {
