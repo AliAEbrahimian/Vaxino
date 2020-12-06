@@ -32,4 +32,5 @@
     <string name="social_security_number_example_1234567890">(Social Security Number) Example: 1234567890</string>
     <string name="age_example_18">(Age) Example: 18</string>
     <string name="phone_example_9">(Phone) Example: 9*********</string>
+    <string name="btn_Call">Call</string>
 </resources>

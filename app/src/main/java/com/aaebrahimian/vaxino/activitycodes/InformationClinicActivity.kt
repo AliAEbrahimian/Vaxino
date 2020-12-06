@@ -1,6 +1,7 @@
 package com.aaebrahimian.vaxino.activitycodes
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
@@ -41,10 +42,13 @@ class InformationClinicActivity : AppCompatActivity() {
                     "Hospital address: ${stringOfCity}" +
                     " city, street ${clinic.body}\n" +
                     "Contact number: ${clinic.number}\n"
+
         }
 
         btn_Call.typeface = ResourcesCompat.getFont(this, R.font.frission)
         btn_Call.setOnClickListener {
+            var intent = Intent(Intent.ACTION_CALL, Uri.parse("Tel:" + clinic?.number))
+            startActivity(intent)
         }
 
         btn_Selection.typeface = ResourcesCompat.getFont(this, R.font.frission)
