@@ -34,6 +34,7 @@ class InformationClinicActivity : AppCompatActivity() {
             2 -> "Influenza"
             else -> "ERROR"
         }
+            img_Clinic.setImageResource(clinic.image)
             txt_Information_Clinic.text = "Hospital Name: ${clinic.title}\n" +
                     "Has a vaccine ${stringOfVaccine}" +
                     " for a limited number.\n" +
