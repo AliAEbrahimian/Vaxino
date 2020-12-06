@@ -18,16 +18,16 @@ class InformationClinicActivity : AppCompatActivity() {
 
         var dbOpenHelper = DBOpenHelper(this)
 
-        var list = dbOpenHelper.getClinicInformation(this, dbOpenHelper.readableDatabase,detailsClinic?.title.toString())
+        var list = dbOpenHelper.getClinicInformation(this, dbOpenHelper.readableDatabase,"Mehregan Hospital")
 
         txt_Information_Clinic.alpha = 0f
         txt_Information_Clinic.animate().setDuration(1500).alpha(1f)
         txt_Information_Clinic.typeface = ResourcesCompat.getFont(this, R.font.frission)
 
-        txt_Information_Clinic.text =  "Hospital Name: ${}\n" +
-                "Has a vaccine ${} for a limited number.\n" +
-                "Hospital address: ${} city, ${} street\n" +
-                "Contact number: ${}\n"
+        txt_Information_Clinic.text = "Hospital Name: (x)\n" +
+                "Has a vaccine (x) for a limited number.\n" +
+                "Hospital address: (x) city, street (x)\n" +
+                "Contact number: (x)\n"
 
 
         btn_Call.typeface = ResourcesCompat.getFont(this, R.font.frission)
