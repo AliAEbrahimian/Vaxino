@@ -90,9 +90,33 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
                 )
                 dataSet.add(clinic)
         }
+        //Toast.makeText(context,"$cityPo" ,Toast.LENGTH_LONG).show()
+        //Toast.makeText(context,"$vaccinePo" ,Toast.LENGTH_LONG).show()
+        Toast.makeText(context,"${cursor.count} Record Found" ,Toast.LENGTH_LONG).show()
+        cursor.close()
+        return dataSet
 
+    }
 
+    fun getClinicInformation(context: Context?, db: SQLiteDatabase?, nameClinic: String?): ArrayList<Clinic>{
+        val dataSet : ArrayList<Clinic> = ArrayList<Clinic>()
 
+        var cursor : Cursor? =
+                db?.query(NAME_TABLE_CLINIC,
+                        arrayOf(COLUMN_NUMBER_OF_CLINIC,
+                                COLUMN_IMAGE_CLINIC,
+                                COLUMN_NAME_CLINIC,
+                                COLUMN_ADDRESS_CLINIC,
+                                COLUMN_CITY,
+                                COLUMN_VACCINE), "$COLUMN_NAME_CLINIC = '$nameClinic'",null, null, null, null)
+
+        while (cursor!!.moveToNext()){
+            var clinic = Clinic(cursor.getInt(0),cursor.getInt(1),
+                    cursor.getString(2), cursor.getString(3),
+                    cursor.getInt(4),cursor.getInt(5)
+            )
+            dataSet.add(clinic)
+        }
         //Toast.makeText(context,"$cityPo" ,Toast.LENGTH_LONG).show()
         //Toast.makeText(context,"$vaccinePo" ,Toast.LENGTH_LONG).show()
         Toast.makeText(context,"${cursor.count} Record Found" ,Toast.LENGTH_LONG).show()
@@ -152,7 +176,7 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
 
 
     fun data(db: SQLiteDatabase?) {
-        insertClinicTable(db, 0 , R.drawable.images,"name hospital","address",1,1)
+        insertClinicTable(db, 0 , R.drawable.images,"Mehregan Hospital","Sheykh Bahaie",1,1)
         insertClinicTable(db, 1 , R.drawable.images,"name hospital","address",2,1)
         insertClinicTable(db, 2 , R.drawable.images,"name hospital","address",2,2)
         insertClinicTable(db, 3 , R.drawable.images,"name hospital","address",3,2)

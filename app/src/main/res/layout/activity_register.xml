@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/layout_background"
     >
-<LinearLayout
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:layout_margin="10dp"
             android:background="@drawable/design_text_view"
             android:fillViewport="true">
@@ -24,77 +21,87 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
+                    android:fontFamily="@font/frission"
                     android:includeFontPadding="true"
                     android:textAlignment="center"
                     android:textColor="#000000"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/frission"/>
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
         </androidx.core.widget.NestedScrollView>
 
         <EditText
             android:id="@+id/edtxt_First_Name"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="match_parent"
             android:layout_margin="10dp"
+            android:layout_weight="1.045"
             android:background="@drawable/design_edit_text"
             android:drawableStart="@drawable/custom_person_icon"
             android:drawablePadding="12dp"
             android:ems="10"
-            android:hint="First name"
+            android:fontFamily="@font/frission"
+            android:hint="@string/first_name"
             android:inputType="textPersonName"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:fontFamily="@font/frission"/>
+            android:textSize="18sp"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/edtxt_Last_Name"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.045"
             android:layout_margin="10dp"
             android:background="@drawable/design_edit_text"
             android:drawableStart="@drawable/custom_person_icon"
             android:drawablePadding="12dp"
             android:ems="10"
-            android:hint="Last Name"
+            android:hint="@string/last_name"
             android:inputType="textPersonName"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:fontFamily="@font/frission"/>
+            android:fontFamily="@font/frission"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/edtxt_National_Code"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.045"
             android:layout_margin="10dp"
             android:background="@drawable/design_edit_text"
             android:drawablePadding="12dp"
             android:ems="10"
-            android:hint="(Social Security Number) Example: 1234567890"
+            android:hint="@string/social_security_number_example_1234567890"
             android:inputType="textPersonName"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:fontFamily="@font/frission"/>
+            android:fontFamily="@font/frission"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/edtxt_Age"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.045"
             android:layout_margin="10dp"
             android:background="@drawable/design_edit_text"
             android:drawablePadding="12dp"
             android:ems="10"
-            android:hint="(Age) Example: 18"
+            android:hint="@string/age_example_18"
             android:inputType="number"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:fontFamily="@font/frission"/>
+            android:fontFamily="@font/frission"
+            android:autofillHints="" />
 
         <RadioGroup
             android:id="@+id/radio_Gender"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:layout_margin="10dp"
+            android:layout_weight="1"
             >
 
                 <RadioButton
@@ -103,32 +110,36 @@
                     android:layout_height="45dp"
                     android:background="@drawable/design_edit_text"
                     android:checked="true"
+                    android:fontFamily="@font/frission"
                     android:text="@string/radio_male"
-                    android:fontFamily="@font/frission"/>
+                    android:textSize="18sp" />
 
                 <RadioButton
                     android:id="@+id/radio_Female"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:background="@drawable/design_edit_text"
+                    android:fontFamily="@font/frission"
                     android:text="@string/radio_female"
-                    android:fontFamily="@font/frission"/>
+                    android:textSize="18sp" />
         </RadioGroup>
 
         <EditText
             android:id="@+id/ednum_Phone_Number"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.045"
             android:layout_margin="10dp"
             android:background="@drawable/design_edit_text"
             android:drawableStart="@drawable/custom_phone_icon"
             android:drawablePadding="12dp"
             android:ems="10"
-            android:inputType="number"
+            android:inputType="phone"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:hint="(Phone) Example: 9*********"
-            android:fontFamily="@font/frission"/>
+            android:hint="@string/phone_example_9"
+            android:fontFamily="@font/frission"
+            android:autofillHints="" />
 
         <Button
             android:id="@+id/btn_Save"
@@ -138,12 +149,13 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="30dp"
             android:layout_marginBottom="10dp"
+            android:layout_weight="1.06"
             android:background="@drawable/design_button_1"
+            android:fontFamily="@font/frission"
             android:text="@string/start_save"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
-            android:textSize="24sp"
-            android:fontFamily="@font/frission"/>
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/btn_Cancel"
@@ -153,12 +165,12 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="30dp"
             android:layout_marginBottom="10dp"
+            android:layout_weight="1.06"
             android:background="@drawable/design_button_1"
+            android:fontFamily="@font/frission"
             android:text="@string/cancel"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
-            android:textSize="24sp"
-            android:fontFamily="@font/frission"/>
+            android:textSize="14sp" />
 
 </LinearLayout>
-</androidx.core.widget.NestedScrollView>

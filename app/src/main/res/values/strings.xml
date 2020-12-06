@@ -27,4 +27,9 @@
     <string name="start_save">Save</string>
     <string name="radio_male">Male</string>
     <string name="radio_female">Female</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last Name</string>
+    <string name="social_security_number_example_1234567890">(Social Security Number) Example: 1234567890</string>
+    <string name="age_example_18">(Age) Example: 18</string>
+    <string name="phone_example_9">(Phone) Example: 9*********</string>
 </resources>

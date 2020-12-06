@@ -25,9 +25,11 @@ class RecViewArrayAdapted(var context: Context,private val dataSet: ArrayList<Cl
 
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+
+        val imgItem : ImageView = view.findViewById(R.id.img_Item)
         val textTitle : TextView = view.findViewById(R.id.txt_Title)
         val textBody : TextView = view.findViewById(R.id.txt_Body)
-        val imgItem : ImageView = view.findViewById(R.id.img_Item)
+
 
         init {
 
@@ -59,8 +61,8 @@ class RecViewArrayAdapted(var context: Context,private val dataSet: ArrayList<Cl
 
         viewHolder.itemView.setOnClickListener {
             val intent = Intent(context, InformationClinicActivity::class.java)
-            intent.putExtra("1",dataSet[position])
-            startActivity(context, intent, null)
+            intent.putExtra("key_1",dataSet[position])
+            startActivity( context, intent, null)
         }
     }
 
