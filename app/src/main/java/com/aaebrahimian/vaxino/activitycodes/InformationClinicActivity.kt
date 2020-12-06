@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import com.aaebrahimian.vaxino.R
-import com.aaebrahimian.vaxino.db.DBOpenHelper
 import com.aaebrahimian.vaxino.model.Clinic
 import kotlinx.android.synthetic.main.activity_information_clinic.*
 
@@ -14,20 +13,34 @@ class InformationClinicActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_information_clinic)
 
-        var detailsClinic = intent.getParcelableExtra<Clinic>("key_1")
+        var clinic = intent.getParcelableExtra<Clinic>("key_1")
 
-        var dbOpenHelper = DBOpenHelper(this)
-        var list = dbOpenHelper.getClinicInformation(this, dbOpenHelper.readableDatabase,"Mehregan Hospital")
 
         txt_Information_Clinic.alpha = 0f
         txt_Information_Clinic.animate().setDuration(1500).alpha(1f)
         txt_Information_Clinic.typeface = ResourcesCompat.getFont(this, R.font.frission)
 
-        /*txt_Information_Clinic.text =  "Hospital Name: ${list[2]}\n" +
-                "Has a vaccine ${list[5]} for a limited number.\n" +
-                "Hospital address: ${list[4]} city, street ${list[3]}\n" +
-                "Contact number: ${list[0]}\n"
-*/
+        if (clinic != null){
+        var stringOfCity = when(clinic.city){
+            0 -> "not selected"
+            1 -> "isfahan"
+            2 -> "tehran"
+            3 -> "mashhad"
+            else -> "ERROR"
+        }
+        var stringOfVaccine = when(clinic.vaccine){
+            0 -> "not selected"
+            1 -> "Covid-19"
+            2 -> "Influenza"
+            else -> "ERROR"
+        }
+            txt_Information_Clinic.text = "Hospital Name: ${clinic.title}\n" +
+                    "Has a vaccine ${stringOfVaccine}" +
+                    " for a limited number.\n" +
+                    "Hospital address: ${stringOfCity}" +
+                    " city, street ${clinic.body}\n" +
+                    "Contact number: ${clinic.number}\n"
+        }
 
         btn_Call.typeface = ResourcesCompat.getFont(this, R.font.frission)
         btn_Call.setOnClickListener {
