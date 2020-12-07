@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import com.aaebrahimian.vaxino.R
 import com.aaebrahimian.vaxino.resources.Statics
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_select.*
 
 
@@ -97,11 +98,18 @@ class SelectActivity : AppCompatActivity() {
                 Toast.makeText( this@SelectActivity, "You not select vaccine" , Toast.LENGTH_SHORT).show()
             }
             else{
-                Toast.makeText( this@SelectActivity, "You select items, ${city} * ${vaccine}" , Toast.LENGTH_SHORT).show()
-                val intent = Intent (this, ClinicActivity::class.java)
-                intent.putExtra("key_1",cityPosition)
-                intent.putExtra("key_2",vaccinePosition)
-                startActivity(intent)
+                btn_Selection.animate().apply {
+                    duration = 1000
+                    rotationXBy(360f)
+                    rotationYBy(360f)
+                }.withEndAction() {
+                    Toast.makeText( this@SelectActivity, "You select items, ${city} * ${vaccine}" , Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, ClinicActivity::class.java)
+                    intent.putExtra("key_1",cityPosition)
+                    intent.putExtra("key_2",vaccinePosition)
+                    startActivity(intent)
+                    overridePendingTransition(R.anim.slide_in, R.anim.slide_out)
+                }
             }
 
 

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.aaebrahimian.vaxino">
 
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -13,7 +13,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Vaxino">
-        <activity android:name=".activitycodes.RegisterActivity"></activity>
         <activity
             android:name=".splashscreen.WelcomeSplash"
             android:theme="@style/splash">
@@ -23,11 +22,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activitycodes.MainActivity"/>
         <activity android:name=".activitycodes.ClinicActivity" />
         <activity android:name=".activitycodes.SelectActivity" />
         <activity android:name=".activitycodes.InformationClinicActivity" />
         <activity android:name=".activitycodes.ConfirmedActivity" />
-        <activity android:name=".activitycodes.MainActivity" />
+        <activity android:name=".activitycodes.SearchActivity"/>
+        <activity android:name=".activitycodes.RegisterActivity" />
     </application>
 
 </manifest>

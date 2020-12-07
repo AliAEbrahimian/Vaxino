@@ -51,13 +51,28 @@ class RegisterActivity : AppCompatActivity() {
         }
         btn_Save.typeface = ResourcesCompat.getFont(this, R.font.frission)
         btn_Save.setOnClickListener {
-
-            var intent = Intent (this,ConfirmedActivity::class.java)
-            startActivity(intent)
+            btn_Save.animate().apply {
+                duration = 1000
+                rotationXBy(360f)
+                rotationYBy(360f)
+            }.withEndAction() {
+                val intent = Intent(this, ConfirmedActivity::class.java)
+                startActivity(intent)
+                overridePendingTransition(R.anim.slide_in, R.anim.slide_out)
+            }
         }
         btn_Cancel.typeface = ResourcesCompat.getFont(this, R.font.frission)
         btn_Cancel.setOnClickListener {
-
+            btn_Cancel.animate().apply {
+                duration = 1000
+                rotationXBy(360f)
+                rotationYBy(360f)
+            }.withEndAction() {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                overridePendingTransition(R.anim.slide_in, R.anim.slide_out)
+                onRestart()
+            }
         }
 
     }
