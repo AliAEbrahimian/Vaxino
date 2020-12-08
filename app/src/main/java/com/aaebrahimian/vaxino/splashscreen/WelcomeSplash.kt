@@ -15,7 +15,7 @@ class WelcomeSplash : AppCompatActivity() {
 
         txt_vaxino.text = "VAXINO"
         txt_vaxino.typeface = ResourcesCompat.getFont(this, R.font.pdark)
-
+        img_Welcome_Splash.setImageResource(R.drawable.splash)
         img_Welcome_Splash.alpha = 0f
         txt_vaxino.alpha = 0f
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".activitycodes.MainActivity"
-    android:background="@drawable/background"
+    android:background="@drawable/background_1"
     >
 
     <ImageView
@@ -16,12 +16,12 @@
         android:layout_weight="4"
         android:layout_margin="10dp"
         android:contentDescription="@string/logo_vaxino"
-        android:src="@mipmap/img_main"
         tools:srcCompat="@tools:sample/avatars"
 
         />
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_Mian"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="4"

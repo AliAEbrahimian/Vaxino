@@ -61,7 +61,7 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
                 "$COLUMN_AGE INTEGER, " +
                 "$COLUMN_ID_PERSON INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
                 "$COLUMN_GENDER INTEGER, " +
-                "$COLUMN_PHONE_NUMBER INTEGER)"
+                "$COLUMN_PHONE_NUMBER STRING)"
         db?.execSQL(createPersonTable)
 
 
@@ -164,7 +164,7 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
         insertClinicTable(db, 32250041, R.drawable.askarie,"Askarie Hospital","Soroush",1,1)
         insertClinicTable(db, 32250041, R.drawable.askarie,"Askarie Hospital","Soroush",1,2)
         insertClinicTable(db, 36272001, R.drawable.shariati,"Shariati Hospital","Chahar Bagh Bala",1,2)
-        insertClinicTable(db, 32600961, R.drawable.chamran,"Chamran Hospital","Bridge bozorgmeh",1,2)
+        insertClinicTable(db, 32600961, R.drawable.chamran,"Chamran Hospital","Bozorgmeh",1,2)
         insertClinicTable(db, 36273031, R.drawable.sadi,"Saadi Hospital","Nazar",1,2)
         insertClinicTable(db, 84090, R.drawable.miladtehran,"Milad Hospital","Highway Hemat",2,1)
         insertClinicTable(db, 84090, R.drawable.miladtehran,"Milad Hospital","Highway Hemat",2,2)

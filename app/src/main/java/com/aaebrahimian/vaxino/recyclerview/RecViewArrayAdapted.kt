@@ -60,14 +60,9 @@ class RecViewArrayAdapted(var context: Context,private val dataSet: ArrayList<Cl
 
 
         viewHolder.itemView.setOnClickListener {
-            viewHolder.itemView.animate().apply {
-                duration = 1000
-                rotationXBy(3600f)
-            }.withEndAction(){
                 val intent = Intent(context, InformationClinicActivity::class.java)
                 intent.putExtra("key_1",dataSet[position])
                 ContextCompat.startActivity(context, intent, null)
-            }
         }
     }
 

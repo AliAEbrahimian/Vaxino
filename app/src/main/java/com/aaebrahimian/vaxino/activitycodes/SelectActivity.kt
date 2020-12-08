@@ -3,6 +3,7 @@ package com.aaebrahimian.vaxino.activitycodes
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
@@ -23,6 +24,9 @@ class SelectActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select)
+
+        nested_1.startAnimation(AnimationUtils.loadAnimation(this,R.anim.photo_animation))
+        nested_2.startAnimation(AnimationUtils.loadAnimation(this,R.anim.photo_animation))
 
 
         txt_City.alpha = 0f
@@ -98,11 +102,6 @@ class SelectActivity : AppCompatActivity() {
                 Toast.makeText( this@SelectActivity, "You not select vaccine" , Toast.LENGTH_SHORT).show()
             }
             else{
-                btn_Selection.animate().apply {
-                    duration = 1000
-                    rotationXBy(360f)
-                    rotationYBy(360f)
-                }.withEndAction() {
                     Toast.makeText( this@SelectActivity, "You select items, ${city} * ${vaccine}" , Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, ClinicActivity::class.java)
                     intent.putExtra("key_1",cityPosition)
@@ -112,7 +111,5 @@ class SelectActivity : AppCompatActivity() {
                 }
             }
 
-
-        }
     }
 }

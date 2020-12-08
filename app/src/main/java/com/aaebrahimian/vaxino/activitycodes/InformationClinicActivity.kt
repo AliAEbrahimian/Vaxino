@@ -14,6 +14,7 @@ class InformationClinicActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_information_clinic)
 
+        nested_informationClinic.startAnimation(AnimationUtils.loadAnimation(this,R.anim.photo_animation))
         var clinic = intent.getParcelableExtra<Clinic>("key_1")
 
         txt_Information_Clinic.alpha = 0f
@@ -42,31 +43,17 @@ class InformationClinicActivity : AppCompatActivity() {
                     "Has a vaccine '${stringOfVaccine}'" +
                     " for a limited number.\n" +
                     "Hospital address: '${stringOfCity}'" +
-                    " city, street '${clinic.body}\n'" +
+                    ",'${clinic.body}\n street'" +
                     "Contact number: '${clinic.number}\n'"
         }
 
-        btn_Call.typeface = ResourcesCompat.getFont(this, R.font.frission)
-        btn_Call.setOnClickListener {
-            btn_Call.animate().apply {
-                duration = 1000
-                rotationXBy(360f)
-                rotationYBy(360f)
-            }.withEndAction() {
-            }
-        }
 
         btn_Selection.typeface = ResourcesCompat.getFont(this, R.font.frission)
         btn_Selection.setOnClickListener {
-            btn_Selection.animate().apply {
-                duration = 1000
-                rotationXBy(360f)
-                rotationYBy(360f)
-            }.withEndAction() {
                 val intent = Intent(this, RegisterActivity::class.java)
                 startActivity(intent)
                 overridePendingTransition(R.anim.slide_in, R.anim.slide_out)
-            }
+
         }
 
 

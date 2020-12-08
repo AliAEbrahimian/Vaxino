@@ -5,10 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background"
+    android:background="@drawable/background_1"
     >
 
         <androidx.core.widget.NestedScrollView
+            android:id="@+id/nested_Register"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -78,7 +79,7 @@
             android:drawablePadding="12dp"
             android:ems="10"
             android:hint="@string/social_security_number_example_1234567890"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:fontFamily="@font/frission"
@@ -177,6 +178,7 @@
             android:background="@drawable/design_button_2"
             android:fontFamily="@font/frission"
             android:text="@string/cancel"
+            android:enabled="false"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="14sp" />

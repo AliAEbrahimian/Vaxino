@@ -18,8 +18,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="0dp"
-        android:background="#0066ff"
         android:orientation="horizontal"
+        android:background="#B22222"
         android:padding="20dp"
         >
 

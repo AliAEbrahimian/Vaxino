@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import com.aaebrahimian.vaxino.R
@@ -14,6 +15,8 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+
+        nested_Register.startAnimation(AnimationUtils.loadAnimation(this,R.anim.photo_animation))
 
         edtxt_First_Name.setHint("First Name")
         edtxt_Last_Name.setHint("Last Name")
@@ -86,7 +89,8 @@ class RegisterActivity : AppCompatActivity() {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                btn_Save.isEnabled = android.util.Patterns.PHONE.matcher(phone).matches()
+                if(phone != null)
+                    btn_Save.isEnabled = true
             }
             override fun afterTextChanged(s: Editable?) {
             }
@@ -109,7 +113,15 @@ class RegisterActivity : AppCompatActivity() {
                 intent.putExtra("key_3",ssn)
                 intent.putExtra("key_4",age)
                 intent.putExtra("key_5",phone)
-
+                var gender = 100
+                if(radio_Male.isChecked) {
+                    gender = 1
+                    intent.putExtra("key_6", gender)
+                }
+                else if(radio_Female.isChecked) {
+                    gender = 0
+                    intent.putExtra("key_6",gender)
+                }
                 startActivity(intent)
                 overridePendingTransition(R.anim.slide_in, R.anim.slide_out)
             }
@@ -117,16 +129,9 @@ class RegisterActivity : AppCompatActivity() {
 
         btn_Cancel.typeface = ResourcesCompat.getFont(this, R.font.frission)
         btn_Cancel.setOnClickListener {
-            btn_Cancel.animate().apply {
-                duration = 1000
-                rotationXBy(360f)
-                rotationYBy(360f)
-            }.withEndAction() {
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 overridePendingTransition(R.anim.slide_in, R.anim.slide_out)
-                onRestart()
-            }
         }
 
     }

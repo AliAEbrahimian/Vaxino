@@ -1,6 +1,7 @@
 package com.aaebrahimian.vaxino.activitycodes
 
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aaebrahimian.vaxino.R
@@ -21,8 +22,8 @@ class ClinicActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_clinic)
 
-        var cityPo: Int = intent.getIntExtra(cityPosition,0)
-        var vaccinePo: Int = intent.getIntExtra(vaccinePosition,0)
+        var cityPo= intent.getIntExtra(cityPosition,0)
+        var vaccinePo = intent.getIntExtra(vaccinePosition,0)
 
         var dbOpenHelper = DBOpenHelper(this)
         //Toast.makeText(this,"Number of city is $cityPo" , Toast.LENGTH_LONG).show()
@@ -32,6 +33,7 @@ class ClinicActivity : AppCompatActivity() {
         val adapter = RecViewArrayAdapted(this,list)
         clinic_RecyclerView.adapter = adapter
         clinic_RecyclerView.layoutManager = LinearLayoutManager(this)
+        clinic_RecyclerView.startAnimation(AnimationUtils.loadAnimation(this,R.anim.photo_animation))
 
         dbOpenHelper.close()
 
