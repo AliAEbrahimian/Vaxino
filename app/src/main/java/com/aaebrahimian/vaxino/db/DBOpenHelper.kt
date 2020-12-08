@@ -52,7 +52,7 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
                 "$COLUMN_CITY INTEGER, " +
                 "$COLUMN_VACCINE INTEGER)"
         db?.execSQL(createClinicTable)
-        data(db)
+        dataClinic(db)
 
         val createPersonTable = "CREATE TABLE IF NOT EXISTS $NAME_TABLE_PERSON " +
                 "($COLUMN_SSN STRING, " +
@@ -63,6 +63,7 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
                 "$COLUMN_GENDER INTEGER, " +
                 "$COLUMN_PHONE_NUMBER INTEGER)"
         db?.execSQL(createPersonTable)
+
 
     }
 
@@ -98,34 +99,8 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
 
     }
 
-    fun getClinicInformation(context: Context?, db: SQLiteDatabase?, nameClinic: String?): ArrayList<Clinic>{
-        val dataSet : ArrayList<Clinic> = ArrayList<Clinic>()
 
-        var cursor : Cursor? =
-                db?.query(NAME_TABLE_CLINIC,
-                        arrayOf(COLUMN_NUMBER_OF_CLINIC,
-                                COLUMN_IMAGE_CLINIC,
-                                COLUMN_NAME_CLINIC,
-                                COLUMN_ADDRESS_CLINIC,
-                                COLUMN_CITY,
-                                COLUMN_VACCINE), "$COLUMN_NAME_CLINIC = '$nameClinic'",null, null, null, null)
-
-        while (cursor!!.moveToNext()){
-            var clinic = Clinic(cursor.getInt(0),cursor.getInt(1),
-                    cursor.getString(2), cursor.getString(3),
-                    cursor.getInt(4),cursor.getInt(5)
-            )
-            dataSet.add(clinic)
-        }
-        //Toast.makeText(context,"$cityPo" ,Toast.LENGTH_LONG).show()
-        //Toast.makeText(context,"$vaccinePo" ,Toast.LENGTH_LONG).show()
-        Toast.makeText(context,"${cursor.count} Record Found" ,Toast.LENGTH_LONG).show()
-        cursor.close()
-        return dataSet
-
-    }
-
-    fun getDataSetPerson (context: Context?,db: SQLiteDatabase?) : ArrayList<Person>{
+    fun getDataSetPerson (context: Context?, db: SQLiteDatabase?, ) : ArrayList<Person>{
         val setPerson :ArrayList<Person> = ArrayList<Person>()
 
         var cursor : Cursor? =
@@ -175,7 +150,7 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
     }
 
 
-    fun data(db: SQLiteDatabase?) {
+    fun dataClinic(db: SQLiteDatabase?) {
         insertClinicTable(db, 32330043, R.drawable.mehregan,"Mehregan Hospital","Sheykh Bahaie",1,1)
         insertClinicTable(db, 32330043, R.drawable.mehregan,"Mehregan Hospital","Sheykh Bahaie",1,2)
         insertClinicTable(db, 32222127, R.drawable.khorshid,"Khorshid Hospital","Ostandari",1,1)

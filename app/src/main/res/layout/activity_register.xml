@@ -103,30 +103,22 @@
             android:autofillHints=""
             android:textColorHint="#A9A9A9"
             android:textColor="@color/black"/>
-        <LinearLayout
+
+        <RadioGroup
+            android:id="@+id/radio_Gender"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1"
-                >
-                <RadioGroup
-                    android:id="@+id/radio_Gender"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                        >
-
+            android:layout_margin="10dp"
+            android:layout_weight="1">
                 <RadioButton
                     android:id="@+id/radio_Male"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/design_edit_text"
-                    android:checked="true"
                     android:layout_weight="1"
                     android:fontFamily="@font/frission"
                     android:text="@string/radio_male"
                     android:textSize="18sp" />
-
                 <RadioButton
                     android:id="@+id/radio_Female"
                     android:layout_width="match_parent"
@@ -136,8 +128,7 @@
                     android:fontFamily="@font/frission"
                     android:text="@string/radio_female"
                     android:textSize="18sp" />
-                </RadioGroup>
-        </LinearLayout>
+        </RadioGroup>
 
         <EditText
             android:id="@+id/ednum_Phone_Number"

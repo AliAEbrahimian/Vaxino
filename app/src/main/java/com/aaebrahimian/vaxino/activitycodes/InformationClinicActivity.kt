@@ -38,12 +38,12 @@ class InformationClinicActivity : AppCompatActivity() {
             img_Clinic.startAnimation(AnimationUtils.loadAnimation(this,R.anim.photo_animation))
 
             img_Clinic.setImageResource(clinic.image)
-            txt_Information_Clinic.text = "Hospital Name: ${clinic.title}\n" +
-                    "Has a vaccine ${stringOfVaccine}" +
+            txt_Information_Clinic.text = "Hospital Name: '${clinic.title}\n'" +
+                    "Has a vaccine '${stringOfVaccine}'" +
                     " for a limited number.\n" +
-                    "Hospital address: ${stringOfCity}" +
-                    " city, street ${clinic.body}\n" +
-                    "Contact number: ${clinic.number}\n"
+                    "Hospital address: '${stringOfCity}'" +
+                    " city, street '${clinic.body}\n'" +
+                    "Contact number: '${clinic.number}\n'"
         }
 
         btn_Call.typeface = ResourcesCompat.getFont(this, R.font.frission)
