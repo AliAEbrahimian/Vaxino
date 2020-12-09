@@ -2,6 +2,7 @@ package com.aaebrahimian.vaxino.activitycodes
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import com.aaebrahimian.vaxino.R
 import kotlinx.android.synthetic.main.activity_confirmed.*
@@ -10,6 +11,8 @@ class ConfirmedActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_confirmed)
+
+        nested_Confirmed.startAnimation(AnimationUtils.loadAnimation(this,R.anim.photo_animation))
 
         var firsName = intent.getStringExtra("Key_1")
         var lastName = intent.getStringExtra("key_2")

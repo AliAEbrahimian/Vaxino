@@ -33,7 +33,8 @@ class RegisterActivity : AppCompatActivity() {
         txt_Register.alpha = 0f
         txt_Register.animate().setDuration(1500).alpha(1f)
         txt_Register.typeface = ResourcesCompat.getFont(this, R.font.frission)
-        txt_Register.text = "a"
+        txt_Register.text = "fill in the blanks.\n" +
+                "All the required items are needed to go to the next step."
 
         edtxt_First_Name.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -106,24 +107,16 @@ class RegisterActivity : AppCompatActivity() {
                 rotationXBy(360f)
                 rotationYBy(360f)
             }.withEndAction() {
-                val intent = Intent(this, ConfirmedActivity::class.java)
 
+                val intent = Intent(this, ConfirmedActivity::class.java)
                 intent.putExtra("key_1",firstName)
                 intent.putExtra("key_2",lastName)
                 intent.putExtra("key_3",ssn)
                 intent.putExtra("key_4",age)
                 intent.putExtra("key_5",phone)
-                var gender = 100
-                if(radio_Male.isChecked) {
-                    gender = 1
-                    intent.putExtra("key_6", gender)
-                }
-                else if(radio_Female.isChecked) {
-                    gender = 0
-                    intent.putExtra("key_6",gender)
-                }
                 startActivity(intent)
                 overridePendingTransition(R.anim.slide_in, R.anim.slide_out)
+
             }
         }
 

@@ -15,29 +15,27 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
 
     companion object{
 
-        const val DATABASE_VERSION = 1
-        const val DATABASE_NAME = "Vaxino.db"
+            const val DATABASE_VERSION = 1
+            const val DATABASE_NAME = "Vaxino.db"
 
-        const val NAME_TABLE_CLINIC = "clinic"
-        const val COLUMN_NUMBER_OF_CLINIC = "number"
-        const val COLUMN_ID_CLINIC = "id"
-        const val COLUMN_IMAGE_CLINIC = "img_item"
-        const val COLUMN_NAME_CLINIC = "text_title"
-        const val COLUMN_ADDRESS_CLINIC = "text_body"
-        const val COLUMN_CITY = "city"
-        const val COLUMN_VACCINE = "vaccine"
+            const val NAME_TABLE_CLINIC = "clinic"
+            const val COLUMN_NUMBER_OF_CLINIC = "number"
+            const val COLUMN_ID_CLINIC = "id"
+            const val COLUMN_IMAGE_CLINIC = "img_item"
+            const val COLUMN_NAME_CLINIC = "text_title"
+            const val COLUMN_ADDRESS_CLINIC = "text_body"
+            const val COLUMN_CITY = "city"
+            const val COLUMN_VACCINE = "vaccine"
 
-
-        const val NAME_TABLE_PERSON = "person"
-        const val COLUMN_SSN = "ssn"
-        const val COLUMN_FIRST_NAME = "firstname"
-        const val COLUMN_LAST_NAME = "lastname"
-        const val COLUMN_AGE = "birthday"
-        const val COLUMN_ID_PERSON = "id"
-        const val COLUMN_GENDER = "gender"
-        const val COLUMN_PHONE_NUMBER = "phone"
-
-    }
+            const val NAME_TABLE_PERSON = "person"
+            const val COLUMN_SSN = "ssn"
+            const val COLUMN_FIRST_NAME = "firstname"
+            const val COLUMN_LAST_NAME = "lastname"
+            const val COLUMN_AGE = "birthday"
+            const val COLUMN_ID_PERSON = "id"
+            const val COLUMN_GENDER = "gender"
+            const val COLUMN_PHONE_NUMBER = "phone"
+        }
 
 
 
@@ -59,7 +57,7 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
                 "$COLUMN_FIRST_NAME TEXT, " +
                 "$COLUMN_LAST_NAME TEXT, " +
                 "$COLUMN_AGE INTEGER, " +
-                "$COLUMN_ID_PERSON INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+                "$COLUMN_ID_PERSON INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "$COLUMN_GENDER INTEGER, " +
                 "$COLUMN_PHONE_NUMBER STRING)"
         db?.execSQL(createPersonTable)
@@ -137,7 +135,7 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
         db?.insert(NAME_TABLE_CLINIC, null, contentValues)
 
     }
-    fun insertPersonTable(db: SQLiteDatabase?,personId: String , firstname: String,  lastname: String,  age: Int,  gender: Boolean,  phone: Int){
+    fun insertPersonTable(db: SQLiteDatabase?, personId: String, firstname: String,  lastname: String,  age: Int,  gender: Boolean,  phone: Int){
 
         val contentValues = ContentValues()
         contentValues.put(COLUMN_SSN,personId)
@@ -147,7 +145,9 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
         contentValues.put(COLUMN_GENDER,gender)
         contentValues.put(COLUMN_PHONE_NUMBER,phone)
         db?.insert(NAME_TABLE_PERSON, null, contentValues)
+        
     }
+
 
 
     fun dataClinic(db: SQLiteDatabase?) {
