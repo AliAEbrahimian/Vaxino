@@ -12,6 +12,8 @@ import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
 
+    var count = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
@@ -24,28 +26,27 @@ class RegisterActivity : AppCompatActivity() {
         edtxt_Age.setHint("(Age) Example: 18")
         ednum_Phone_Number.setHint("(Phone) Example: 09123456789")
 
-        val firstName = edtxt_First_Name.text.toString()
-        val lastName = edtxt_Last_Name.text.toString()
-        val ssn = edtxt_SSN.text.toString()
-        val age = edtxt_SSN.text.toString()
-        val phone = ednum_Phone_Number.text.toString()
+        val firstName: String = edtxt_First_Name.text.toString()
+        val lastName: String = edtxt_Last_Name.text.toString()
+        val ssn: String = edtxt_SSN.text.toString()
+        val age: String = edtxt_SSN.text.toString()
+        val phone: String = ednum_Phone_Number.text.toString()
 
         txt_Register.alpha = 0f
         txt_Register.animate().setDuration(1500).alpha(1f)
         txt_Register.typeface = ResourcesCompat.getFont(this, R.font.frission)
-        txt_Register.text = "fill in the blanks.\n" +
+        txt_Register.text = "Fill in the blanks.\n" +
                 "All the required items are needed to go to the next step."
+
+
 
         edtxt_First_Name.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if(firstName != null)
-                    btn_Save.isEnabled = true
             }
 
             override fun afterTextChanged(s: Editable?) {
-
             }
 
         })
@@ -54,8 +55,6 @@ class RegisterActivity : AppCompatActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if(lastName != null)
-                    btn_Save.isEnabled = true
             }
 
             override fun afterTextChanged(s: Editable?) {
@@ -67,8 +66,6 @@ class RegisterActivity : AppCompatActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if(ssn != null)
-                    btn_Save.isEnabled = true
             }
             override fun afterTextChanged(s: Editable?) {
             }
@@ -78,8 +75,6 @@ class RegisterActivity : AppCompatActivity() {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if(age != null)
-                    btn_Save.isEnabled = true
             }
             override fun afterTextChanged(s: Editable?) {
             }
@@ -90,8 +85,6 @@ class RegisterActivity : AppCompatActivity() {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if(phone != null)
-                    btn_Save.isEnabled = true
             }
             override fun afterTextChanged(s: Editable?) {
             }
@@ -102,6 +95,7 @@ class RegisterActivity : AppCompatActivity() {
 
         btn_Save.typeface = ResourcesCompat.getFont(this, R.font.frission)
         btn_Save.setOnClickListener {
+
             btn_Save.animate().apply {
                 duration = 1000
                 rotationXBy(360f)
@@ -114,6 +108,7 @@ class RegisterActivity : AppCompatActivity() {
                 intent.putExtra("key_3",ssn)
                 intent.putExtra("key_4",age)
                 intent.putExtra("key_5",phone)
+
                 startActivity(intent)
                 overridePendingTransition(R.anim.slide_in, R.anim.slide_out)
 

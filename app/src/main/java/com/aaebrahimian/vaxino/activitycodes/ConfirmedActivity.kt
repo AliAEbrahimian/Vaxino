@@ -14,19 +14,14 @@ class ConfirmedActivity : AppCompatActivity() {
 
         nested_Confirmed.startAnimation(AnimationUtils.loadAnimation(this,R.anim.photo_animation))
 
-        var firsName = intent.getStringExtra("Key_1")
-        var lastName = intent.getStringExtra("key_2")
-        var ssn = intent.getStringExtra("key_3")
-        var age = intent.getStringExtra("key_4")
-        var phone = intent.getStringExtra("key_5")
-        var gender = intent.getIntExtra("key_6",0)
-
+        val firsName: String? = intent.getStringExtra("Key_1")
+        val lastName: String? = intent.getStringExtra("key_2")
+        val ssn: String? = intent.getStringExtra("key_3")
+        val age: String? = intent.getStringExtra("key_4")
+        val phone: String? = intent.getStringExtra("key_5")
+        val gender: String? = intent.getStringExtra("key_6")
         var valueGender = ""
 
-        if(gender === 1)
-            valueGender = "Male"
-        else if(gender === 0)
-            valueGender = "Female"
 
         txt_confirmed.text = "Information registered in the registration section\n" +
                 "First name: $firsName\n" +
