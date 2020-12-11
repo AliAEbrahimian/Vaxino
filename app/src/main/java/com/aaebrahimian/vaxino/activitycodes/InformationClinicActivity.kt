@@ -15,7 +15,7 @@ class InformationClinicActivity : AppCompatActivity() {
         setContentView(R.layout.activity_information_clinic)
 
         nested_informationClinic.startAnimation(AnimationUtils.loadAnimation(this,R.anim.photo_animation))
-        var clinic = intent.getParcelableExtra<Clinic>("key_1")
+        var clinic = intent.getParcelableExtra<Clinic>("Clinic")
 
         txt_Information_Clinic.alpha = 0f
         txt_Information_Clinic.animate().setDuration(1500).alpha(1f)
@@ -40,11 +40,11 @@ class InformationClinicActivity : AppCompatActivity() {
 
             img_Clinic.setImageResource(clinic.image)
             txt_Information_Clinic.text = "Hospital Name: '${clinic.title}\n'" +
-                    "Has a vaccine '${stringOfVaccine}'" +
+                    "Has a vaccine ${stringOfVaccine}" +
                     " for a limited number.\n" +
-                    "Hospital address: '${stringOfCity}'" +
-                    ",'${clinic.body}\n street'" +
-                    "Contact number: '${clinic.number}\n'"
+                    "Hospital address: ${stringOfCity}" +
+                    ",${clinic.body}\n street" +
+                    "Contact number: ${clinic.number}\n"
         }
 
 

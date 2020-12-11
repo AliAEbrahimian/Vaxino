@@ -31,7 +31,7 @@
         </androidx.core.widget.NestedScrollView>
 
         <EditText
-            android:id="@+id/edtxt_First_Name"
+            android:id="@+id/edtxt_first_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
@@ -39,7 +39,7 @@
             android:background="@drawable/design_edit_text"
             android:drawableStart="@drawable/custom_person_icon"
             android:drawablePadding="12dp"
-            android:ems="10"
+            android:ems="20"
             android:fontFamily="@font/frission"
             android:hint="@string/first_name"
             android:inputType="textPersonName"
@@ -51,7 +51,7 @@
             android:textColor="@color/black"/>
 
         <EditText
-            android:id="@+id/edtxt_Last_Name"
+            android:id="@+id/edtxt_last_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1.045"
@@ -59,7 +59,7 @@
             android:background="@drawable/design_edit_text"
             android:drawableStart="@drawable/custom_person_icon"
             android:drawablePadding="12dp"
-            android:ems="10"
+            android:ems="50"
             android:hint="@string/last_name"
             android:inputType="textPersonName"
             android:paddingStart="12dp"
@@ -70,14 +70,14 @@
             android:textColor="@color/black"/>
 
         <EditText
-            android:id="@+id/edtxt_SSN"
+            android:id="@+id/edtxt_ssn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1.045"
             android:layout_margin="10dp"
             android:background="@drawable/design_edit_text"
             android:drawablePadding="12dp"
-            android:ems="10"
+            android:ems="15"
             android:hint="@string/social_security_number_example_1234567890"
             android:inputType="number"
             android:paddingStart="12dp"
@@ -88,14 +88,14 @@
             android:textColor="@color/black"/>
 
         <EditText
-            android:id="@+id/edtxt_Age"
+            android:id="@+id/edtxt_age"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1.045"
             android:layout_margin="10dp"
             android:background="@drawable/design_edit_text"
             android:drawablePadding="12dp"
-            android:ems="10"
+            android:ems="2"
             android:hint="@string/age_example_18"
             android:inputType="number"
             android:paddingStart="12dp"
@@ -106,13 +106,13 @@
             android:textColor="@color/black"/>
 
         <RadioGroup
-            android:id="@+id/radio_Gender"
+            android:id="@+id/radiogender"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:layout_weight="1">
                 <RadioButton
-                    android:id="@+id/radio_Male"
+                    android:id="@+id/radio_male"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/design_edit_text"
@@ -121,7 +121,7 @@
                     android:text="@string/radio_male"
                     android:textSize="18sp" />
                 <RadioButton
-                    android:id="@+id/radio_Female"
+                    android:id="@+id/radiofe_male"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -132,7 +132,7 @@
         </RadioGroup>
 
         <EditText
-            android:id="@+id/ednum_Phone_Number"
+            android:id="@+id/edtxt_phone_number"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1.045"
@@ -140,7 +140,7 @@
             android:background="@drawable/design_edit_text"
             android:drawableStart="@drawable/custom_phone_icon"
             android:drawablePadding="12dp"
-            android:ems="10"
+            android:ems="11"
             android:inputType="phone"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
@@ -162,10 +162,10 @@
             android:background="@drawable/design_button_1"
             android:fontFamily="@font/frission"
             android:text="@string/start_save"
-            android:enabled="false"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/btn_Cancel"
@@ -179,9 +179,9 @@
             android:background="@drawable/design_button_2"
             android:fontFamily="@font/frission"
             android:text="@string/cancel"
-            android:enabled="false"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:textStyle="bold"/>
 
 </LinearLayout>
