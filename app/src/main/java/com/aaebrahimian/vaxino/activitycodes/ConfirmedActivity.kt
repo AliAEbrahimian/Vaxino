@@ -20,10 +20,10 @@ class ConfirmedActivity : AppCompatActivity() {
         val ssn: String = intent.getStringExtra("SSN").toString()
         val age: String = intent.getStringExtra("age").toString()
         val phone: String = intent.getStringExtra("phone").toString()
+        val valueGender = intent.getStringExtra("gender").toString()
 
-        Toast.makeText(this,firstName + "/" + lastName + "/" + ssn + "/" + age + "/" + phone,Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "$firstName/$lastName/$ssn/$age/$phone/$valueGender",Toast.LENGTH_SHORT).show()
 
-        var valueGender = "male"
 
         txt_confirmed.text = "Information registered in the registration section\n" +
                 "First name: ${firstName.capitalize()} \n" +

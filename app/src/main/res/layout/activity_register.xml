@@ -119,16 +119,18 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/frission"
                     android:text="@string/radio_male"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:onClick="onRadioButtonClicked"/>
                 <RadioButton
-                    android:id="@+id/radiofe_male"
+                    android:id="@+id/radio_female"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/design_edit_text"
                     android:fontFamily="@font/frission"
                     android:text="@string/radio_female"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:onClick="onRadioButtonClicked"/>
         </RadioGroup>
 
         <EditText
