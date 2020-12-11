@@ -6,7 +6,6 @@ import android.util.Log
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.RadioButton
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import com.aaebrahimian.vaxino.R
@@ -18,7 +17,7 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-        
+
 
         nested_Register.startAnimation(AnimationUtils.loadAnimation(this,R.anim.photo_animation))
 
@@ -61,11 +60,12 @@ class RegisterActivity : AppCompatActivity() {
 
         btn_Cancel.typeface = ResourcesCompat.getFont(this, R.font.frission)
         btn_Cancel.setOnClickListener {
-            var gender = when(sex){ 2 -> "male"; 1 -> "female"; else -> "ERROR"}
-            Toast.makeText(this@RegisterActivity, gender, Toast.LENGTH_SHORT).show()
 
             val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
+            intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in, R.anim.slide_out)
 

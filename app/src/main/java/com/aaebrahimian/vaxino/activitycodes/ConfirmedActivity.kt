@@ -36,6 +36,8 @@ class ConfirmedActivity : AppCompatActivity() {
         btn_Confirmed.typeface = ResourcesCompat.getFont(this, R.font.frission)
         btn_Confirmed.setOnClickListener {
             val intent = Intent (this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
+            intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in, R.anim.slide_out)
