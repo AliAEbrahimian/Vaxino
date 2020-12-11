@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
 import com.aaebrahimian.vaxino.R
 import com.aaebrahimian.vaxino.model.Clinic
-import com.aaebrahimian.vaxino.model.Person
 
 
 class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null , 1 ) {
@@ -27,14 +26,6 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
             const val COLUMN_CITY = "city"
             const val COLUMN_VACCINE = "vaccine"
 
-            const val NAME_TABLE_PERSON = "person"
-            const val COLUMN_SSN = "ssn"
-            const val COLUMN_FIRST_NAME = "firstname"
-            const val COLUMN_LAST_NAME = "lastname"
-            const val COLUMN_AGE = "birthday"
-            const val COLUMN_ID_PERSON = "id"
-            const val COLUMN_GENDER = "gender"
-            const val COLUMN_PHONE_NUMBER = "phone"
         }
 
 
@@ -52,22 +43,9 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
         db?.execSQL(createClinicTable)
         dataClinic(db)
 
-        val createPersonTable = "CREATE TABLE IF NOT EXISTS $NAME_TABLE_PERSON " +
-                "($COLUMN_SSN STRING, " +
-                "$COLUMN_FIRST_NAME TEXT, " +
-                "$COLUMN_LAST_NAME TEXT, " +
-                "$COLUMN_AGE INTEGER, " +
-                "$COLUMN_ID_PERSON INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "$COLUMN_GENDER INTEGER, " +
-                "$COLUMN_PHONE_NUMBER STRING)"
-        db?.execSQL(createPersonTable)
-
-
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        db!!.execSQL("DROP TABLE IF EXISTS $NAME_TABLE_PERSON")
-        onCreate(db)
     }
 
     fun getDataSetClinic(context: Context?, db: SQLiteDatabase?, city: Int, vaccine: Int): ArrayList<Clinic>{
@@ -98,30 +76,7 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
     }
 
 
-    fun getDataSetPerson (context: Context?, db: SQLiteDatabase?, ) : ArrayList<Person>{
-        val setPerson :ArrayList<Person> = ArrayList<Person>()
 
-        var cursor : Cursor? =
-                db?.query(NAME_TABLE_PERSON,
-                        arrayOf( COLUMN_SSN,
-                                COLUMN_FIRST_NAME,
-                                COLUMN_LAST_NAME,
-                                COLUMN_AGE,
-                                COLUMN_ID_PERSON,
-                                COLUMN_GENDER,
-                                COLUMN_PHONE_NUMBER), null, null, null, null, null)
-
-        while (cursor!!.moveToNext()){
-            var person = Person(cursor.getString(0),cursor.getString(1),
-                    cursor.getString(2),cursor.getInt(3),
-                    cursor.getShort(4),cursor.getInt(5))
-            setPerson.add(person)
-        }
-        Toast.makeText(context,"${cursor.count} Record Found" ,Toast.LENGTH_LONG).show()
-        cursor.close()
-        return setPerson
-
-    }
 
     fun insertClinicTable(db: SQLiteDatabase?,number : Int, image : Int, title: String, body : String, city : Int , vaccine : Int){
 
@@ -135,18 +90,7 @@ class DBOpenHelper(context : Context?) : SQLiteOpenHelper( context , null ,null 
         db?.insert(NAME_TABLE_CLINIC, null, contentValues)
 
     }
-    fun insertPersonTable(db: SQLiteDatabase?, personId: String, firstname: String,  lastname: String,  age: Int,  gender: Boolean,  phone: Int){
 
-        val contentValues = ContentValues()
-        contentValues.put(COLUMN_SSN,personId)
-        contentValues.put(COLUMN_FIRST_NAME,firstname)
-        contentValues.put(COLUMN_LAST_NAME,lastname)
-        contentValues.put(COLUMN_AGE, age)
-        contentValues.put(COLUMN_GENDER,gender)
-        contentValues.put(COLUMN_PHONE_NUMBER,phone)
-        db?.insert(NAME_TABLE_PERSON, null, contentValues)
-        
-    }
 
 
 

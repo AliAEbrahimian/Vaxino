@@ -15,10 +15,11 @@ import kotlinx.android.synthetic.main.activity_register.*
 class RegisterActivity : AppCompatActivity() {
 
     var sex = 0
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+
+        btn_Save.isEnabled = false
 
         nested_Register.startAnimation(AnimationUtils.loadAnimation(this,R.anim.photo_animation))
 
@@ -28,23 +29,11 @@ class RegisterActivity : AppCompatActivity() {
         edtxt_age.hint = "(Age) Example: 18"
         edtxt_phone_number.hint = "(Phone) Example: 09123456789"
 
-
-        /*btn_Save.isEnabled = when{
-            edtxt_first_name.text.trim().toString().isEmpty() -> false
-            edtxt_last_name.text.trim().toString().isEmpty()-> false
-            edtxt_ssn.text.trim().toString().isEmpty() -> false
-            edtxt_age.text.trim().toString().isEmpty() -> false
-            edtxt_phone_number.text.trim().toString().isEmpty() -> false
-            else -> true
-        }*/
-
         val firstName = edtxt_first_name.text
         val lastName = edtxt_last_name.text
         val ssn = edtxt_ssn.text
         val age = edtxt_age.text
         val phone = edtxt_phone_number.text
-
-        val gender = when(sex){ 1 -> "male"; 2 -> "female"; else -> "ERROR"}
 
         txt_Register.alpha = 0f
         txt_Register.animate().setDuration(1500).alpha(1f)
@@ -57,6 +46,7 @@ class RegisterActivity : AppCompatActivity() {
         btn_Save.setOnClickListener {
 
 
+            var gender = when(sex){ 1 -> "female"; 2 -> "male"; else -> "ERROR"}
 
             val intent = Intent(this, ConfirmedActivity::class.java)
             intent.putExtra("firstName","$firstName")
@@ -72,15 +62,18 @@ class RegisterActivity : AppCompatActivity() {
 
         btn_Cancel.typeface = ResourcesCompat.getFont(this, R.font.frission)
         btn_Cancel.setOnClickListener {
+            var gender = when(sex){ 2 -> "male"; 1 -> "female"; else -> "ERROR"}
             Toast.makeText(this@RegisterActivity, gender, Toast.LENGTH_SHORT).show()
 
-            /*val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                    overridePendingTransition(R.anim.slide_in, R.anim.slide_out)
-            */
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+            overridePendingTransition(R.anim.slide_in, R.anim.slide_out)
+
         }
 
     }
+
 
     fun onRadioButtonClicked(view: View) {
         if (view is RadioButton) {
