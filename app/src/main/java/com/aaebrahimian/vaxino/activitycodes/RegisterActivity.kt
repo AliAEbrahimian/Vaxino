@@ -2,6 +2,7 @@ package com.aaebrahimian.vaxino.activitycodes
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.RadioButton
@@ -13,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
 
+    var sex = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,26 +44,6 @@ class RegisterActivity : AppCompatActivity() {
         val age = edtxt_age.text
         val phone = edtxt_phone_number.text
 
-        var sex = 0
-        fun onRadioButtonClicked(view: View) {
-            if (view is RadioButton) {
-                // Is the button now checked?
-                val checked = view.isChecked
-
-                // Check which radio button was clicked
-                when (view.getId()) {
-                    R.id.radio_female ->
-                        if (checked) {
-                            sex = 1
-                        }
-                    R.id.radio_male ->
-                        if (checked) {
-                            sex = 2
-                        }
-                }
-            }
-        }
-
         val gender = when(sex){ 1 -> "male"; 2 -> "female"; else -> "ERROR"}
 
         txt_Register.alpha = 0f
@@ -90,14 +72,36 @@ class RegisterActivity : AppCompatActivity() {
 
         btn_Cancel.typeface = ResourcesCompat.getFont(this, R.font.frission)
         btn_Cancel.setOnClickListener {
+            Toast.makeText(this@RegisterActivity, gender, Toast.LENGTH_SHORT).show()
 
-            Toast.makeText(this, "$firstName/$lastName/$ssn/$age/$phone/$sex", Toast.LENGTH_SHORT).show()
-
-        /*val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                overridePendingTransition(R.anim.slide_in, R.anim.slide_out)
-        */
+            /*val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    overridePendingTransition(R.anim.slide_in, R.anim.slide_out)
+            */
         }
 
+    }
+
+    fun onRadioButtonClicked(view: View) {
+        if (view is RadioButton) {
+            // Is the button now checked?
+            val checked = view.isChecked
+
+            // Check which radio button was clicked
+            when (view.getId()) {
+                R.id.radio_female ->
+                    if (checked) {
+                        sex = 1
+                        Log.d("radio button", "female")
+                        Log.d("radio button", sex.toString())
+                    }
+                R.id.radio_male ->
+                    if (checked) {
+                        sex = 2
+                        Log.d("radio button", "male")
+                        Log.d("radio button", sex.toString())
+                    }
+            }
+        }
     }
 }
