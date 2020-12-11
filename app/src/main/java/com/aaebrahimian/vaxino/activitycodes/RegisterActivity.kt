@@ -18,8 +18,7 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-
-        btn_Save.isEnabled = false
+        
 
         nested_Register.startAnimation(AnimationUtils.loadAnimation(this,R.anim.photo_animation))
 
