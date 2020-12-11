@@ -56,7 +56,8 @@ class RegisterActivity : AppCompatActivity() {
         btn_Cancel.setOnClickListener {
 
             Toast.makeText(this, "$firstName/$lastName/$ssn/$age/$phone", Toast.LENGTH_SHORT).show()
-                /*val intent = Intent(this, MainActivity::class.java)
+
+        /*val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 overridePendingTransition(R.anim.slide_in, R.anim.slide_out)
         */
