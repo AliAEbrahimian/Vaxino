@@ -24,11 +24,21 @@ class RegisterActivity : AppCompatActivity() {
         edtxt_age.hint = "(Age) Example: 18"
         edtxt_phone_number.hint = "(Phone) Example: 09123456789"
 
-        val firstName = "ali"
-        val lastName = "aebrahimian"
-        val ssn = "1272122646"
-        val age = "25"
-        val phone = "09305099752"
+
+        /*btn_Save.isEnabled = when{
+            edtxt_first_name.text.trim().toString().isEmpty() -> false
+            edtxt_last_name.text.trim().toString().isEmpty()-> false
+            edtxt_ssn.text.trim().toString().isEmpty() -> false
+            edtxt_age.text.trim().toString().isEmpty() -> false
+            edtxt_phone_number.text.trim().toString().isEmpty() -> false
+            else -> true
+        }*/
+
+        val firstName = edtxt_first_name.text
+        val lastName = edtxt_last_name.text
+        val ssn = edtxt_ssn.text
+        val age = edtxt_age.text
+        val phone = edtxt_phone_number.text
 
         txt_Register.alpha = 0f
         txt_Register.animate().setDuration(1500).alpha(1f)
@@ -49,7 +59,6 @@ class RegisterActivity : AppCompatActivity() {
             intent.putExtra("phone",phone)
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in, R.anim.slide_out)
-
         }
 
         btn_Cancel.typeface = ResourcesCompat.getFont(this, R.font.frission)
