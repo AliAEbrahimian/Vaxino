@@ -118,7 +118,7 @@
                     android:background="@drawable/design_edit_text"
                     android:layout_weight="1"
                     android:fontFamily="@font/frission"
-                    android:text="@string/radio_male"
+                    android:text="مرد"
                     android:textSize="18sp"
                     android:onClick="onRadioButtonClicked"/>
                 <RadioButton
@@ -128,7 +128,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/design_edit_text"
                     android:fontFamily="@font/frission"
-                    android:text="@string/radio_female"
+                    android:text="زن"
                     android:textSize="18sp"
                     android:onClick="onRadioButtonClicked"/>
         </RadioGroup>
@@ -163,7 +163,7 @@
             android:layout_weight="1.06"
             android:background="@drawable/design_button_1"
             android:fontFamily="@font/frission"
-            android:text="@string/start_save"
+            android:text="ثبت"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="14sp"
@@ -180,7 +180,7 @@
             android:layout_weight="1.06"
             android:background="@drawable/design_button_2"
             android:fontFamily="@font/frission"
-            android:text="@string/cancel"
+            android:text="انصراف"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="14sp"

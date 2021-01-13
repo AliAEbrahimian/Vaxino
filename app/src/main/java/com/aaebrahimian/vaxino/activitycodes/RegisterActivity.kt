@@ -21,11 +21,11 @@ class RegisterActivity : AppCompatActivity() {
 
         nested_Register.startAnimation(AnimationUtils.loadAnimation(this,R.anim.photo_animation))
 
-        edtxt_first_name.hint = "First Name"
-        edtxt_last_name.hint="Last Name"
-        edtxt_ssn.hint = "(Social Security Number) Example: 1234567890"
-        edtxt_age.hint = "(Age) Example: 18"
-        edtxt_phone_number.hint = "(Phone) Example: 09123456789"
+        edtxt_first_name.hint = "نام"
+        edtxt_last_name.hint="نام خانوادگی"
+        edtxt_ssn.hint = "(کد ملی) مثال: 1234567890"
+        edtxt_age.hint = "(سن) مثال: 18"
+        edtxt_phone_number.hint = "(تلفن همراه) مثال: 09123456789"
 
         val firstName = edtxt_first_name.text
         val lastName = edtxt_last_name.text
@@ -36,8 +36,8 @@ class RegisterActivity : AppCompatActivity() {
         txt_Register.alpha = 0f
         txt_Register.animate().setDuration(1500).alpha(1f)
         txt_Register.typeface = ResourcesCompat.getFont(this, R.font.frission)
-        txt_Register.text = "Fill in the blanks.\n" +
-                "All the required items are needed to go to the next step."
+        txt_Register.text = "موارد خواسته شده را وارد کنید.\n" +
+                "توجه کنید که تمام موارد باید وارد شده باشد تا به مرحله بعدی بروید."
 
 
         btn_Save.typeface = ResourcesCompat.getFont(this, R.font.frission)

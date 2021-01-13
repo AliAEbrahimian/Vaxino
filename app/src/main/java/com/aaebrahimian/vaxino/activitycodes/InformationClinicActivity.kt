@@ -39,12 +39,12 @@ class InformationClinicActivity : AppCompatActivity() {
             img_Clinic.startAnimation(AnimationUtils.loadAnimation(this,R.anim.photo_animation))
 
             img_Clinic.setImageResource(clinic.image)
-            txt_Information_Clinic.text = "Hospital Name: '${clinic.title}\n'" +
-                    "Has a vaccine ${stringOfVaccine}" +
-                    " for a limited number.\n" +
-                    "Hospital address: ${stringOfCity}" +
-                    ",${clinic.body}\n street" +
-                    "Contact number: ${clinic.number}\n"
+            txt_Information_Clinic.text = "نام بیمارستان: '${clinic.title}\n'" +
+                    "دارای واکسن ${stringOfVaccine}" +
+                    " برای تعداد محدود.\n" +
+                    "ادرس بیمارستان: ${stringOfCity}" +
+                    ",${clinic.body}\n خیابان" +
+                    "شماره تماس: ${clinic.number}\n"
         }
 
 

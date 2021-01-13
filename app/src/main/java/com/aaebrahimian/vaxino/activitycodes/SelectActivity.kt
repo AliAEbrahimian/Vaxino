@@ -32,7 +32,7 @@ class SelectActivity : AppCompatActivity() {
         txt_City.alpha = 0f
         txt_City.animate().setDuration(1500).alpha(1f)
         txt_City.typeface = ResourcesCompat.getFont(this, R.font.frission)
-        txt_City.text = "1. You can select your desired city by hitting the spinner below."
+        txt_City.text = "1. شهر مورد نطر خود را انتخاب کنید."
         ArrayAdapter.createFromResource(
             this,
                 R.array.City_array,
@@ -65,7 +65,7 @@ class SelectActivity : AppCompatActivity() {
         txt_Vaccine.alpha = 0f
         txt_Vaccine.animate().setDuration(1500).alpha(1f)
         txt_Vaccine.typeface = ResourcesCompat.getFont(this, R.font.frission)
-        txt_Vaccine.text = "2. You can select the vaccine you want by hitting the spinner below."
+        txt_Vaccine.text = "2. واکسن مورد نظر خود انتخاب کنید."
         ArrayAdapter.createFromResource(
             this,
                 R.array.Vaccine_array,
@@ -93,16 +93,16 @@ class SelectActivity : AppCompatActivity() {
         btn_Selection.typeface = ResourcesCompat.getFont(this, R.font.frission)
         btn_Selection.setOnClickListener {
             if( this.cityPosition === 0 && this.vaccinePosition === 0) {
-                Toast.makeText( this@SelectActivity, "You not select city and vaccine" , Toast.LENGTH_SHORT).show()
+                Toast.makeText( this@SelectActivity, "هیچ موردی انتخاب نشد" , Toast.LENGTH_SHORT).show()
             }
             else if(cityPosition === 0){
-                Toast.makeText( this@SelectActivity, "You not select city" , Toast.LENGTH_SHORT).show()
+                Toast.makeText( this@SelectActivity, "شهر مورد نظر انتخاب نشد" , Toast.LENGTH_SHORT).show()
             }
             else if(vaccinePosition === 0){
-                Toast.makeText( this@SelectActivity, "You not select vaccine" , Toast.LENGTH_SHORT).show()
+                Toast.makeText( this@SelectActivity, "واکشن مورد نظر انتخاب نشد" , Toast.LENGTH_SHORT).show()
             }
             else{
-                    Toast.makeText( this@SelectActivity, "You select items, ${city} * ${vaccine}" , Toast.LENGTH_SHORT).show()
+                    Toast.makeText( this@SelectActivity, "انتخاب شما, ${city} * ${vaccine}" , Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, ClinicActivity::class.java)
                     intent.putExtra("key_1",cityPosition)
                     intent.putExtra("key_2",vaccinePosition)

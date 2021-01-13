@@ -25,13 +25,13 @@ class ConfirmedActivity : AppCompatActivity() {
 
         Toast.makeText(this, "$firstName/$lastName/$ssn/$age/$phone/$valueGender",Toast.LENGTH_SHORT).show()
 
-        txt_confirmed.text = "Information registered in the registration section\n" +
-                "First name: ${firstName.capitalize()} \n" +
-                "Last name: ${lastName.capitalize()} \n" +
-                "SSN: $ssn \n" +
-                "Gender: ${valueGender.capitalize()} \n" +
-                "Age: $age \n" +
-                "Phone Number: $phone"
+        txt_confirmed.text = "تمام اطلاعاتی که در بخش ثبت نام وارد شد\n" +
+                "نام: ${firstName.capitalize()} \n" +
+                "نام خانوادگی: ${lastName.capitalize()} \n" +
+                "کد ملی: $ssn \n" +
+                "جنسیت: ${valueGender.capitalize()} \n" +
+                "سن: $age \n" +
+                "شماره تلفن: $phone"
 
         btn_Confirmed.typeface = ResourcesCompat.getFont(this, R.font.frission)
         btn_Confirmed.setOnClickListener {
@@ -41,8 +41,7 @@ class ConfirmedActivity : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in, R.anim.slide_out)
-            Toast.makeText(this, "All your information has been registered.\n" +
-                    " More information will be sent to you via SMS.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "تمام اطلاعات شما به سامانه واکسینو وارد شد منتظر پیام تایید سامانه باشید.", Toast.LENGTH_LONG).show()
         }
     }
 }

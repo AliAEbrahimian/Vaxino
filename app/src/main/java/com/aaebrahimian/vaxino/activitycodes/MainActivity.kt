@@ -22,9 +22,9 @@ class MainActivity : AppCompatActivity() {
         txt_Main.alpha = 0f
         txt_Main.animate().setDuration(1500).alpha(1f)
         txt_Main.typeface = ResourcesCompat.getFont(this, R.font.frission)
-        txt_Main.text = "Description:\n" +
-                "1. By pressing the START VACCINE button you will enter the vaccination stage\n" +
-                "2. By pressing the SEARCH button you will recover your data"
+        txt_Main.text = "توضیحات:\n" +
+                "1. با زدن دکمه واکسن شما به فرایند واکسن وارد میشوید\n" +
+                "2. با زدن دکمه جست و جو میتوانید کد پیگیری خود را پیدا کنید"
 
         btn_Start_Vaccine.typeface = ResourcesCompat.getFont(this, R.font.frission)
         btn_Start_Vaccine.setOnClickListener {
